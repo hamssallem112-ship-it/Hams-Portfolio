@@ -26,15 +26,32 @@ header {
     align-items: center;
     padding: 60px;
     text-align: center;
+    background: linear-gradient(135deg, #0b1120, #1a1f3a, #28304f);
+    position: relative;
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(11,17,32,0.7);
 }
 
 header img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+    width: 180px;
+    height: 180px;
     object-fit: cover;
     margin-bottom: 20px;
+    border-radius: 20px;
     border: 3px solid #38bdf8;
+    position: relative;
+    z-index: 1;
+}
+
+/* مثال صورة لها دخل بالـ GIS: خريطة أو شبكة خطوط */
+header h1, header p, header .btn {
+    position: relative;
+    z-index: 1;
 }
 
 h1 {
@@ -47,7 +64,7 @@ h1 {
 
 .subtitle {
     font-size: 20px;
-    opacity: 0.8;
+    opacity: 0.9;
     max-width: 500px;
 }
 
@@ -80,6 +97,7 @@ h2 {
     display: flex;
     flex-direction: row-reverse;
     gap: 20px;
+    position: relative;
 }
 
 .project:hover {
@@ -108,6 +126,17 @@ h2 {
     margin: 5px 0;
 }
 
+.next-btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #38bdf8;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #0b1120;
+    font-weight: bold;
+}
+
 /* FOOTER */
 footer {
     text-align: center;
@@ -129,7 +158,8 @@ footer {
 <body>
 
 <header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/GIS-icon.png" alt="تخصص نظم المعلومات الجغرافية">
+    <!-- صورة لها علاقة بالـ GIS -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/World_map_with_graticule.png" alt="خريطة GIS">
     <h1>همس <span class="highlight">الحارثي</span></h1>
     <p class="subtitle">
     محللة نظم معلومات جغرافية متخصصة في التحليل المكاني، التخطيط العمراني، وحلول البيانات المكانية لدعم اتخاذ القرار.
@@ -141,62 +171,68 @@ footer {
     <h2>أعمال مختارة</h2>
 
     <!-- المشروع 1 -->
-    <div class="project">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Landfill_in_Jeddah.jpg" alt="تأثير المرادم والمحارق">
+    <div class="project" id="project1">
+        <img src="https://images.unsplash.com/photo-1601575827112-60f64f19b541?auto=format&fit=crop&w=800&q=80" alt="تأثير المرادم والمحارق">
         <div class="project-content">
             <h3>تأثير المرادم والمحارق - جدة</h3>
             <p><strong>الهدف:</strong> تحليل تأثير مرافق التخلص من النفايات على المناطق السكنية.</p>
             <p><strong>الطريقة:</strong> تراكب مكاني + تقييم التأثير.</p>
             <p><strong>النتيجة:</strong> رسم خرائط للمناطق المتأثرة لدعم التخطيط العمراني.</p>
+            <button class="next-btn" onclick="scrollToProject('project2')">التالي</button>
         </div>
     </div>
 
     <!-- المشروع 2 -->
-    <div class="project">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Jeddah_Map.png" alt="توزيع الحاويات">
+    <div class="project" id="project2">
+        <img src="https://images.unsplash.com/photo-1559028012-481edab2e9b3?auto=format&fit=crop&w=800&q=80" alt="توزيع الحاويات">
         <div class="project-content">
             <h3>توزيع الحاويات - جدة</h3>
             <p><strong>الهدف:</strong> تحسين كفاءة إدارة النفايات.</p>
             <p><strong>الطريقة:</strong> تحليل التوزيع المكاني، مناطق العزل.</p>
             <p><strong>النتيجة:</strong> اقتراح مواقع مثالية للحاويات.</p>
+            <button class="next-btn" onclick="scrollToProject('project3')">التالي</button>
         </div>
     </div>
 
     <!-- المشروع 3 -->
-    <div class="project">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Electric_power_transmission_map_of_Saudi_Arabia.png" alt="خطوط الشبكة الكهربائية">
+    <div class="project" id="project3">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="خطوط الشبكة الكهربائية">
         <div class="project-content">
             <h3>خطوط الشبكة الكهربائية للسعودية</h3>
             <p><strong>الهدف:</strong> تحليل البنية التحتية للكهرباء على مستوى المملكة.</p>
             <p><strong>الطريقة:</strong> رسم الخرائط والتحليل المكاني.</p>
             <p><strong>النتيجة:</strong> تحديد الخطوط الرئيسية والمحطات المهمة.</p>
+            <button class="next-btn" onclick="scrollToProject('project4')">التالي</button>
         </div>
     </div>
+
     <!-- المشروع 4 -->
-    <div class="project">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Hydrology_Map_Example.png" alt="التحليل الهيدرولوجي">
+    <div class="project" id="project4">
+        <img src="https://images.unsplash.com/photo-1581090462017-1e6f167c08c5?auto=format&fit=crop&w=800&q=80" alt="التحليل الهيدرولوجي">
         <div class="project-content">
             <h3>التحليل الهيدرولوجي</h3>
             <p><strong>الهدف:</strong> دراسة توزيع المياه ومسارات تصريف السيول.</p>
             <p><strong>الطريقة:</strong> تحليل نموذج ارتفاع التضاريس، ورسم أحواض تصريف المياه.</p>
             <p><strong>النتيجة:</strong> تحديد المناطق الرئيسة لتجمع وتصريف المياه.</p>
+            <button class="next-btn" onclick="scrollToProject('project5')">التالي</button>
         </div>
     </div>
 
     <!-- المشروع 5 -->
-    <div class="project">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Spatial_Interpolation_Example.png" alt="IDW / Spline / Kriging">
+    <div class="project" id="project5">
+        <img src="https://images.unsplash.com/photo-1578679678947-7c6b7864c77c?auto=format&fit=crop&w=800&q=80" alt="IDW / Spline / Kriging">
         <div class="project-content">
             <h3>النمذجة المكانية - IDW / Spline / Kriging</h3>
             <p><strong>الهدف:</strong> تقدير القيم المكانية المفقودة وتحليل التوزيع المكاني.</p>
             <p><strong>الطريقة:</strong> طرق الاستيفاء المكاني (IDW، Spline، Kriging).</p>
             <p><strong>النتيجة:</strong> إنشاء خرائط مستمرة لدعم اتخاذ القرار.</p>
+            <button class="next-btn" onclick="scrollToProject('project6')">التالي</button>
         </div>
     </div>
 
     <!-- المشروع 6 -->
-    <div class="project">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Jeddah_Health_Map.png" alt="تغطية المراكز الصحية">
+    <div class="project" id="project6">
+        <img src="https://images.unsplash.com/photo-1596197098953-cbc0d60e0d7c?auto=format&fit=crop&w=800&q=80" alt="تغطية المراكز الصحية">
         <div class="project-content">
             <h3>تغطية المراكز الصحية - جدة</h3>
             <p><strong>الهدف:</strong> تحديد مناطق ضعف التغطية ومناطق تركّز الخدمات الصحية.</p>
@@ -218,7 +254,7 @@ footer {
 <section>
     <h2>تواصل معي</h2>
     <p>البريد الإلكتروني: gmailhamssallem112@</p>
-    <p>LinkedIn: hams-alharthi</p>
+    <p>واتس آب: <a href="https://wa.me/966500000000" target="_blank" style="color:#38bdf8;">+966 5XXXXXXXX</a></p>
 </section>
 
 <footer>
@@ -228,6 +264,10 @@ footer {
 <script>
 function goProjects() {
     document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
+}
+
+function scrollToProject(id) {
+    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
 }
 </script>
 
