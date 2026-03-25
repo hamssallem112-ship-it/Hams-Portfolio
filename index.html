@@ -15,13 +15,17 @@ body {
     color: white;
 }
 
+/* HEADER WITH IMAGE */
 header {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 50px;
-    background: linear-gradient(135deg, #0f172a, #1e293b);
+    background: linear-gradient(rgba(15,23,42,0.8), rgba(15,23,42,0.9)),
+    url('https://images.unsplash.com/photo-1502920917128-1aa500764cbd');
+    background-size: cover;
+    background-position: center;
 }
 
 h1 {
@@ -51,22 +55,43 @@ h2 {
     color: #38bdf8;
 }
 
+/* PROJECT CARDS */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
 }
 
 .card {
     background: #1e293b;
-    padding: 20px;
     border-radius: 12px;
+    overflow: hidden;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .card:hover {
-    transform: scale(1.05);
-    background: #334155;
+    transform: scale(1.03);
+}
+
+/* PROJECT IMAGE */
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+/* CONTENT */
+.card-content {
+    padding: 20px;
+}
+
+/* HIDDEN DETAILS */
+.details {
+    display: none;
+    margin-top: 10px;
+    font-size: 14px;
+    opacity: 0.8;
 }
 
 footer {
@@ -87,66 +112,48 @@ footer {
 
 <section id="projects">
     <h2>Projects</h2>
+
     <div class="grid">
 
-        <div class="card">
-            <h3>Interactive Tourist Map</h3>
-            <p>Built using JavaScript and ArcGIS Online to enhance user interaction with spatial data.</p>
+        <div class="card" onclick="toggle(this)">
+            <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b">
+            <div class="card-content">
+                <h3>Interactive Tourist Map</h3>
+                <p>Built using JavaScript & ArcGIS Online</p>
+                <div class="details">
+                    Developed an interactive web map allowing users to explore tourist locations. 
+                    Integrated popups, layers, and user-friendly navigation to enhance usability.
+                </div>
+            </div>
         </div>
 
-        <div class="card">
-            <h3>Hospital Distribution Analysis</h3>
-            <p>Analyzed spatial distribution of healthcare services in Jeddah.</p>
+        <div class="card" onclick="toggle(this)">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+            <div class="card-content">
+                <h3>Hospital Distribution Analysis</h3>
+                <p>Spatial analysis in Jeddah</p>
+                <div class="details">
+                    Used GIS tools to evaluate the distribution of hospitals and identify underserved areas.
+                    Applied buffer and density analysis to support decision-making.
+                </div>
+            </div>
         </div>
 
-        <div class="card">
-            <h3>Hydrological Analysis</h3>
-            <p>Used DEM data for stream extraction and flood modeling.</p>
+        <div class="card" onclick="toggle(this)">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+            <div class="card-content">
+                <h3>Hydrological Analysis</h3>
+                <p>DEM & flood modeling</p>
+                <div class="details">
+                    Conducted terrain analysis using DEM to extract streams and simulate flood flow patterns.
+                    Useful for environmental planning and risk assessment.
+                </div>
+            </div>
         </div>
 
-        <div class="card">
-            <h3>Change Detection</h3>
-            <p>Analyzed satellite imagery to monitor environmental changes over time.</p>
-        </div>
-
-    </div>
-</section>
-
-<section>
-    <h2>Skills</h2>
-    <div class="grid">
-        <div class="card">ArcGIS Pro</div>
-        <div class="card">QGIS</div>
-        <div class="card">Remote Sensing</div>
-        <div class="card">Spatial Analysis</div>
-        <div class="card">Web GIS</div>
-    </div>
-</section>
-
-<section>
-    <h2>About Me</h2>
-    <p>
-    GIS graduate with strong expertise in spatial analysis, geospatial data processing, and mapping solutions. 
-    I specialize in transforming geographic data into insights that support planning and decision-making.
-    </p>
-</section>
-
-<section>
-    <h2>Contact</h2>
-    <p>Email: gmailhamssallem112@</p>
-    <p>Phone: 0560739523</p>
-    <p>LinkedIn: hams-alharthi</p>
-</section>
-
-<footer>
-    © 2026 Hams Alharthi
-</footer>
-
-<script>
-function scrollToSection() {
-    document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
-}
-</script>
-
-</body>
-</html>
+        <div class="card" onclick="toggle(this)">
+            <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa">
+            <div class="card-content">
+                <h3>Change Detection</h3>
+                <p>Satellite imagery analysis</p>
+                <div class="details">
