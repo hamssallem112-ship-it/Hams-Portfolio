@@ -1,137 +1,253 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio GIS - همس</title>
+<title>Hams Alharthi | GIS Analyst</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
 <style>
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
     margin: 0;
-    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    background: #0b1120;
+    color: #e2e8f0;
 }
+
+/* HERO */
+header {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px;
+}
+
 h1 {
-    text-align: center;
-    margin-bottom: 40px;
+    font-size: 52px;
 }
-.portfolio {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 20px;
+
+.highlight {
+    color: #38bdf8;
 }
-.card {
-    background: white;
-    border-radius: 12px;
-    padding: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+.subtitle {
+    font-size: 20px;
+    opacity: 0.8;
+    max-width: 500px;
 }
-.card img {
+
+.btn {
+    margin-top: 25px;
+    padding: 14px 28px;
+    background: #38bdf8;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* SECTIONS */
+section {
+    padding: 80px 60px;
+}
+
+h2 {
+    color: #38bdf8;
+    margin-bottom: 30px;
+}
+
+/* PROJECT */
+.project {
+    background: #111827;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+}
+
+/* IMAGE */
+.project img {
     width: 100%;
-    border-radius: 12px;
+    height: 260px;
+    object-fit: cover;
 }
-.card h3 {
-    margin-top: 10px;
-    margin-bottom: 5px;
+
+/* CONTENT */
+.project-content {
+    padding: 25px;
 }
-.card p {
-    font-size: 0.9rem;
-    color: #555;
+
+.project-content h3 {
+    margin-top: 0;
 }
+
+/* MAP */
 .map-box {
-    height: 250px;
+    height: 300px;
     border-radius: 12px;
-    margin-top: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #020617;
 }
 </style>
 </head>
+
 <body>
 
-<h1>Portfolio GIS - همس</h1>
+<header>
+    <h1>Hams <span class="highlight">Alharthi</span></h1>
+    <p class="subtitle">
+    GIS Analyst specializing in spatial analysis, urban planning, and geospatial solutions that support data-driven decision making.
+    </p>
+    <button class="btn" onclick="goProjects()">View Projects</button>
+</header>
 
-<div class="portfolio">
+<section id="projects">
+    <h2>Selected Work</h2>
 
-  <!-- مشروع 1: خطوط الشبكة الكهربائية -->
-  <div class="card">
-    <h3>خطوط الشبكة الكهربائية للسعودية</h3>
-    <p>تحليل الشبكات الكهربائية الرئيسية في المملكة وتحديد المحطات المهمة.</p>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Electric_power_transmission_map_of_Saudi_Arabia.png" alt="خطوط الشبكة">
-    <div class="map-box" id="map1"></div>
-  </div>
+    <!-- PROJECT 1 -->
+    <div class="project">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Electric_power_transmission_map_of_Saudi_Arabia.png" alt="خطوط الشبكة الكهربائية">
+        <div class="project-content">
+            <h3>خطوط الشبكة الكهربائية للسعودية</h3>
+            <p><strong>Objective:</strong> تحليل البنية التحتية للكهرباء على مستوى المملكة.</p>
+            <p><strong>Method:</strong> Mapping & spatial analysis.</p>
+            <p><strong>Result:</strong> Identified main transmission lines and key substations.</p>
+            <div class="map-box" id="map1"></div>
+        </div>
+    </div>
 
-  <!-- مشروع 2: توزيع الحاويات -->
-  <div class="card">
-    <h3>توزيع الحاويات - جدة</h3>
-    <p>تحليل توزيع الحاويات لتحسين إدارة النفايات في المدينة.</p>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Jeddah_Map.png" alt="جدة">
-    <div class="map-box" id="map2"></div>
-  </div>
+    <!-- PROJECT 2 -->
+    <div class="project">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Jeddah_Map.png" alt="توزيع الحاويات">
+        <div class="project-content">
+            <h3>توزيع الحاويات - جدة</h3>
+            <p><strong>Objective:</strong> تحسين كفاءة إدارة النفايات.</p>
+            <p><strong>Method:</strong> Spatial distribution analysis, buffer zones.</p>
+            <p><strong>Result:</strong> Optimized placement of waste bins.</p>
+            <div class="map-box" id="map2"></div>
+        </div>
+    </div>
 
-  <!-- مشروع 3: تأثير المرادم والمحارق -->
-  <div class="card">
-    <h3>تأثير مرافق التخلص من النفايات - جدة</h3>
-    <p>تحليل تأثير المرادم والمحارق على المناطق السكنية المحيطة.</p>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Landfill_in_Jeddah.jpg" alt="مرادم جدة">
-    <div class="map-box" id="map3"></div>
-  </div>
+    <!-- PROJECT 3 -->
+    <div class="project">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Landfill_in_Jeddah.jpg" alt="تأثير المرادم والمحارق">
+        <div class="project-content">
+            <h3>تأثير المرادم والمحارق - جدة</h3>
+            <p><strong>Objective:</strong> تحليل تأثير مرافق التخلص من النفايات على المناطق السكنية.</p>
+            <p><strong>Method:</strong> Spatial overlay + impact assessment.</p>
+            <p><strong>Result:</strong> Mapped affected areas for urban planning.</p>
+            <div class="map-box" id="map3"></div>
+        </div>
+    </div>
 
-  <!-- مشروع 4: التحليل الهيدرولوجي -->
-  <div class="card">
-    <h3>التحليل الهيدرولوجي</h3>
-    <p>تحليل توزيع المياه ومسارات تصريف السيول باستخدام DEM والبيانات المكانية.</p>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Hydrology_Map_Example.png" alt="هيدرولوجي">
-    <div class="map-box" id="map4"></div>
-  </div>
+    <!-- PROJECT 4 -->
+    <div class="project">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Hydrology_Map_Example.png" alt="التحليل الهيدرولوجي">
+        <div class="project-content">
+            <h3>التحليل الهيدرولوجي</h3>
+            <p><strong>Objective:</strong> دراسة توزيع المياه ومسارات تصريف السيول.</p>
+            <p><strong>Method:</strong> DEM analysis, watershed mapping.</p>
+            <p><strong>Result:</strong> Identified key drainage and water collection areas.</p>
+            <div class="map-box" id="map4"></div>
+        </div>
+    </div>
 
-  <!-- مشروع 5: IDW / Spline / Kriging -->
-  <div class="card">
-    <h3>النمذجة المكانية - IDW / Spline / Kriging</h3>
-    <p>تقدير القيم المكانية المفقودة وتحليل التوزيع باستخدام طرق النمذجة المختلفة.</p>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Spatial_Interpolation_Example.png" alt="Spatial Interpolation">
-    <div class="map-box" id="map5"></div>
-  </div>
+    <!-- PROJECT 5 -->
+    <div class="project">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Spatial_Interpolation_Example.png" alt="IDW / Spline / Kriging">
+        <div class="project-content">
+            <h3>النمذجة المكانية - IDW / Spline / Kriging</h3>
+            <p><strong>Objective:</strong> تقدير القيم المكانية المفقودة وتحليل التوزيع المكاني.</p>
+            <p><strong>Method:</strong> Interpolation techniques (IDW, Spline, Kriging).</p>
+            <p><strong>Result:</strong> Generated continuous spatial surfaces for decision-making.</p>
+            <div class="map-box" id="map5"></div>
+        </div>
+    </div>
 
-  <!-- مشروع 6: تغطية المراكز الصحية -->
-  <div class="card">
-    <h3>تحليل تغطية المراكز الصحية - جدة</h3>
-    <p>تحديد مناطق ضعف التغطية ومناطق تركّز الخدمات الصحية في المدينة.</p>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Jeddah_Health_Map.png" alt="مراكز صحية جدة">
-    <div class="map-box" id="map6"></div>
-  </div>
+    <!-- PROJECT 6 -->
+    <div class="project">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Jeddah_Health_Map.png" alt="تغطية المراكز الصحية">
+        <div class="project-content">
+            <h3>تغطية المراكز الصحية - جدة</h3>
+            <p><strong>Objective:</strong> تحديد مناطق ضعف التغطية ومناطق تركّز الخدمات الصحية.</p>
+            <p><strong>Method:</strong> Spatial analysis + service areas.</p>
+            <p><strong>Result:</strong> Identified underserved zones requiring new facilities.</p>
+            <div class="map-box" id="map6"></div>
+        </div>
+    </div>
 
-</div>
+</section>
+
+<!-- INTERACTIVE MAP -->
+<section>
+    <h2>Interactive Map</h2>
+    <div class="map-box">
+        <iframe 
+        src="https://www.arcgis.com/apps/mapviewer/index.html"
+        width="100%" height="100%" frameborder="0">
+        </iframe>
+    </div>
+</section>
+
+<section>
+    <h2>About</h2>
+    <p>
+    GIS Analyst with expertise in spatial data analysis, remote sensing, and geospatial modeling.
+    Focused on solving real-world problems using geographic data.
+    </p>
+</section>
+
+<section>
+    <h2>Contact</h2>
+    <p>Email: gmailhamssallem112@</p>
+    <p>LinkedIn: hams-alharthi</p>
+</section>
+
+<footer>
+    © 2026 Hams Alharthi
+</footer>
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
-// مشروع 1
+function goProjects() {
+    document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
+}
+
+// Maps for each project
 var map1 = L.map('map1').setView([23.8859, 45.0792], 5);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map1);
-L.marker([24.7136, 46.6753]).addTo(map1).bindPopup('Riyadh - محطة رئيسية');
+L.marker([24.7136, 46.6753]).addTo(map1).bindPopup('Riyadh Substation');
 
-// مشروع 2
 var map2 = L.map('map2').setView([21.4858, 39.1925], 12);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map2);
-L.marker([21.4858, 39.1925]).addTo(map2).bindPopup('Container Location 1');
-L.marker([21.4930, 39.2040]).addTo(map2).bindPopup('Container Location 2');
+L.marker([21.4858, 39.1925]).addTo(map2).bindPopup('Container 1');
 
-// مشروع 3
 var map3 = L.map('map3').setView([21.4858, 39.1925], 12);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map3);
 L.marker([21.4700, 39.1800]).addTo(map3).bindPopup('Landfill 1');
 L.marker([21.5000, 39.2100]).addTo(map3).bindPopup('Incinerator 1');
 
-// مشروع 4
 var map4 = L.map('map4').setView([21.4858, 39.1925], 12);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map4);
-L.marker([21.4800, 39.1900]).addTo(map4).bindPopup('Hydrology Point 1');
+L.marker([21.4800, 39.1900]).addTo(map4).bindPopup('Hydrology Point');
 
-// مشروع 5
 var map5 = L.map('map5').setView([21.4858, 39.1925], 12);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map5);
 L.marker([21.4870, 39.1950]).addTo(map5).bindPopup('IDW Point');
 
-// مشروع 6
 var map6 = L.map('map6').setView([21.4858, 39.1925], 12);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map6);
 L.marker([21.4900, 39.2000]).addTo(map6).bindPopup('Health Center 1');
@@ -140,4 +256,3 @@ L.marker([21.4950, 39.2050]).addTo(map6).bindPopup('Health Center 2');
 
 </body>
 </html>
-    
