@@ -26,7 +26,7 @@ header {
     align-items: center;
     padding: 60px;
     text-align: center;
-    background: linear-gradient(135deg, #0b1120, #1a1f3a, #28304f);
+    background: linear-gradient(135deg, #1a3b5d, #2c6671, #38bdf8);
     position: relative;
 }
 
@@ -34,7 +34,7 @@ header::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(11,17,32,0.7);
+    background: rgba(10, 20, 40, 0.5);
 }
 
 header img {
@@ -43,12 +43,12 @@ header img {
     object-fit: cover;
     margin-bottom: 20px;
     border-radius: 20px;
-    border: 3px solid #38bdf8;
+    border: 3px solid #ffffff;
     position: relative;
     z-index: 1;
 }
 
-/* مثال صورة لها دخل بالـ GIS: خريطة أو شبكة خطوط */
+/* مثال صورة لها علاقة بالـ GIS: خريطة أو شبكة خطوط */
 header h1, header p, header .btn {
     position: relative;
     z-index: 1;
@@ -59,19 +59,21 @@ h1 {
 }
 
 .highlight {
-    color: #38bdf8;
+    color: #ffffff;
 }
 
 .subtitle {
     font-size: 20px;
     opacity: 0.9;
     max-width: 500px;
+    color: #e0f7fa;
 }
 
 .btn {
     margin-top: 25px;
     padding: 14px 28px;
-    background: #38bdf8;
+    background: #ffffff;
+    color: #1a3b5d;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -159,7 +161,7 @@ footer {
 
 <header>
     <!-- صورة لها علاقة بالـ GIS -->
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/World_map_with_graticule.png" alt="خريطة GIS">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_-_simple.svg" alt="خريطة GIS">
     <h1>همس <span class="highlight">الحارثي</span></h1>
     <p class="subtitle">
     محللة نظم معلومات جغرافية متخصصة في التحليل المكاني، التخطيط العمراني، وحلول البيانات المكانية لدعم اتخاذ القرار.
