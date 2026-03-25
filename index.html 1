@@ -1,0 +1,48 @@
+<div class="project">
+            <img src="https://images.unsplash.com/photo-1581090462017-1e6f167c08c5?auto=format&fit=crop&w=800&q=80" alt="التحليل الهيدرولوجي">
+            <div class="project-content">
+                <h3>التحليل الهيدرولوجي</h3>
+                <p><strong>الهدف:</strong> دراسة توزيع المياه ومسارات تصريف السيول.</p>
+            </div>
+        </div>
+
+        <!-- المشروع 5 -->
+        <div class="project">
+            <img src="https://images.unsplash.com/photo-1578679678947-7c6b7864c77c?auto=format&fit=crop&w=800&q=80" alt="IDW / Spline / Kriging">
+            <div class="project-content">
+                <h3>النمذجة المكانية - IDW / Spline / Kriging</h3>
+                <p><strong>الهدف:</strong> تقدير القيم المكانية المفقودة وتحليل التوزيع المكاني.</p>
+            </div>
+        </div>
+
+        <!-- المشروع 6 -->
+        <div class="project">
+            <img src="https://images.unsplash.com/photo-1596197098953-cbc0d60e0d7c?auto=format&fit=crop&w=800&q=80" alt="تغطية المراكز الصحية">
+            <div class="project-content">
+                <h3>تغطية المراكز الصحية - جدة</h3>
+                <p><strong>الهدف:</strong> تحديد مناطق ضعف التغطية ومناطق تركّز الخدمات الصحية.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>من أنا</h2>
+    <p>
+    محللة نظم معلومات جغرافية متخصصة في تحليل البيانات المكانية، الاستشعار عن بعد، والنمذجة الجغرافية.
+    أركز على حل المشكلات الواقعية باستخدام البيانات الجغرافية.
+    </p>
+</section>
+
+<section>
+    <h2>تواصل معي</h2>
+    <p>البريد الإلكتروني: gmailhamssallem112@</p>
+    <p>واتس آب: <a href="https://wa.me/966560739523" target="_blank">0560739523</a></p>
+</section>
+
+<footer>
+    © 2026 همس الحارثي
+</footer>
+
+</body>
+</html>
