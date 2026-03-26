@@ -21,17 +21,15 @@ header {
     display: flex;
     align-items: center;
     padding: 60px;
-    background: linear-gradient(rgba(5,1,10,0.8), rgba(5,1,10,0.95)),
-    url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564'); /* صورة GIS */
+    background: linear-gradient(rgba(5,1,10,0.85), rgba(5,1,10,0.95)),
+    url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564');
     background-size: cover;
 }
 
-.highlight {
+.name {
+    font-size: 52px;
     color: #a855f7;
-}
-
-h1 {
-    font-size: 50px;
+    text-shadow: 0 0 20px rgba(168,85,247,0.6);
 }
 
 .btn {
@@ -45,29 +43,42 @@ h1 {
 
 /* الأقسام */
 section {
-    padding: 70px 60px;
-}
-
-h2 {
-    color: #a855f7;
+    padding: 80px 60px;
 }
 
 /* المشاريع */
+#projects {
+    background: linear-gradient(180deg, #1a0b2e, #2a0f4a);
+}
+
+h2 {
+    color: #c084fc;
+}
+
+/* Grid */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 25px;
 }
 
+/* الكارد */
 .card {
-    background: #0f0a1a;
+    background: #140a24;
     border-radius: 16px;
     overflow: hidden;
     transition: 0.3s;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.card.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-10px) scale(1.02);
 }
 
 .card img {
@@ -80,13 +91,13 @@ h2 {
     padding: 20px;
 }
 
-/* POPUP */
+/* Popup */
 .popup {
     display: none;
     position: fixed;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.85);
     top: 0;
     left: 0;
     justify-content: center;
@@ -94,11 +105,12 @@ h2 {
 }
 
 .popup-content {
-    background: #0f0a1a;
+    background: #140a24;
     padding: 30px;
     border-radius: 15px;
-    width: 80%;
+    width: 85%;
     max-width: 600px;
+    animation: fadeIn 0.3s ease;
 }
 
 .close {
@@ -107,11 +119,25 @@ h2 {
     cursor: pointer;
 }
 
-/* فوتر */
-footer {
+/* تواصل */
+.contact-box {
+    background: #0f0a1a;
+    padding: 30px;
+    border-radius: 15px;
     text-align: center;
-    padding: 20px;
-    background: #020617;
+}
+
+.contact-box a {
+    color: #c084fc;
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {opacity: 0; transform: scale(0.9);}
+    to {opacity: 1; transform: scale(1);}
 }
 </style>
 </head>
@@ -119,11 +145,11 @@ footer {
 <body>
 
 <header>
-    <div>
-        <h1>همس <span class="highlight">سالم الحارثي</span></h1>
-        <p>محللة نظم معلومات جغرافية متخصصة في التحليل المكاني والبيئي</p>
-        <button class="btn" onclick="goProjects()">المشاريع</button>
-    </div>
+<div>
+<h1 class="name">همس سالم الحارثي</h1>
+<p>محللة نظم معلومات جغرافية متخصصة في التحليل المكاني والبيئي ودعم اتخاذ القرار</p>
+<button class="btn" onclick="goProjects()">استعراض المشاريع</button>
+</div>
 </header>
 
 <section id="projects">
@@ -131,67 +157,56 @@ footer {
 
 <div class="grid">
 
-<!-- 1 -->
-<div class="card" onclick="openPopup('خطوط الشبكة الكهربائية',
-'تحليل توزيع الشبكة الكهربائية في السعودية لتحديد مناطق التغطية والضغط.\n\nالمنهجية: Spatial Analysis.\n\nالنتيجة: دعم التخطيط للطاقة.')">
+<div class="card" onclick="openPopup('الشبكة الكهربائية','تحليل توزيع الشبكة الكهربائية لدعم التخطيط.')">
 <img src="https://images.unsplash.com/photo-1581091215367-59ab6b3b3d8a">
-<div class="card-content"><h3>الشبكة الكهربائية</h3></div>
+<div class="card-content">الشبكة الكهربائية</div>
 </div>
 
-<!-- 2 -->
-<div class="card" onclick="openPopup('المركز المتوسط والاتجاه',
-'تحليل توزيع البيانات باستخدام Mean Center و Direction.\n\nيساعد على فهم نمط التوزيع.')">
+<div class="card" onclick="openPopup('المركز المتوسط','تحليل الاتجاه والتوزيع المكاني.')">
 <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b">
-<div class="card-content"><h3>المركز المتوسط</h3></div>
+<div class="card-content">المركز المتوسط</div>
 </div>
 
-<!-- 3 -->
-<div class="card" onclick="openPopup('خريطة تفاعلية HTML',
-'خريطة تفاعلية تعرض اسم الدولة عند الضغط باستخدام JavaScript.\n\nيميز مهارات Web GIS.')">
+<div class="card" onclick="openPopup('خريطة تفاعلية','Web GIS باستخدام JavaScript.')">
 <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429">
-<div class="card-content"><h3>خريطة تفاعلية</h3></div>
+<div class="card-content">خريطة تفاعلية</div>
 </div>
 
-<!-- 4 -->
-<div class="card" onclick="openPopup('توزيع الحاويات',
-'تحليل توزيع الحاويات في جدة.\n\nالنتيجة: اقتراح مواقع جديدة.')">
+<div class="card" onclick="openPopup('الحاويات','تحليل توزيع الحاويات.')">
 <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
-<div class="card-content"><h3>الحاويات</h3></div>
+<div class="card-content">الحاويات</div>
 </div>
 
-<!-- 5 -->
-<div class="card" onclick="openPopup('تأثير المرادم',
-'تحليل بيئي باستخدام Buffer.\n\nقياس التأثير على المناطق.')">
+<div class="card" onclick="openPopup('المرادم','تحليل التأثير البيئي.')">
 <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa">
-<div class="card-content"><h3>المرادم</h3></div>
+<div class="card-content">المرادم</div>
 </div>
 
-<!-- 6 -->
-<div class="card" onclick="openPopup('تحليل هيدرولوجي',
-'تحليل تدفق المياه باستخدام DEM.\n\nتحديد مجاري السيول.')">
+<div class="card" onclick="openPopup('الهيدرولوجي','تحليل تدفق المياه.')">
 <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05">
-<div class="card-content"><h3>الهيدرولوجي</h3></div>
+<div class="card-content">الهيدرولوجي</div>
+</div>
+<img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d">
+<div class="card-content">Interpolation</div>
 </div>
 
-<!-- 7 -->
-<div class="card" onclick="openPopup('Interpolation',
-'مقارنة IDW و Kriging و Spline.\n\nتحليل الدقة.')">
-<img src="https://images.
- unsplash.com/photo-1504384308090-c894fdcc538d">
-<div class="card-content"><h3>IDW / Kriging</h3></div>
-</div>
-
-<!-- 8 -->
-<div class="card" onclick="openPopup('تأثير المحارق',
-'تحليل تأثير المحارق بيئياً.\n\nتحديد مناطق الخطر.')">
+<div class="card" onclick="openPopup('المحارق','تحليل التأثير البيئي.')">
 <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231">
-<div class="card-content"><h3>المحارق</h3></div>
+<div class="card-content">المحارق</div>
 </div>
 
 </div>
 </section>
 
-<!-- POPUP -->
+<section>
+<h2>تواصل معي</h2>
+<div class="contact-box">
+<p>📧 gmailhamssallem112@</p>
+<p>📱 0560739523</p>
+<a href="#">LinkedIn</a>
+</div>
+</section>
+
 <div id="popup" class="popup">
 <div class="popup-content">
 <span class="close" onclick="closePopup()">×</span>
@@ -200,12 +215,8 @@ footer {
 </div>
 </div>
 
-<footer>
-© همس سالم الحارثي
-</footer>
-
 <script>
-function goProjects() {
+function goProjects(){
 document.getElementById("projects").scrollIntoView({behavior:"smooth"});
 }
 
@@ -218,7 +229,16 @@ document.getElementById("popup").style.display="flex";
 function closePopup(){
 document.getElementById("popup").style.display="none";
 }
+
+/* Animation */
+window.onload = () => {
+let cards = document.querySelectorAll('.card');
+cards.forEach((c,i)=>{
+setTimeout(()=>{c.classList.add('show')}, i*150);
+});
+}
 </script>
 
 </body>
-</html>   
+</html>
+<div class="card" onclick="openPopup('Interpolation','IDW و Kriging.')">
