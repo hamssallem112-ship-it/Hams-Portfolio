@@ -3,15 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>همس الحارثي | محللة نظم معلومات جغرافية</title>
+<title>همس سالم الحارثي | GIS</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;600&display=swap" rel="stylesheet">
+<!-- خط احترافي -->
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 body {
     margin: 0;
-    font-family: 'Cairo', sans-serif;
-    background: #0f172a;
+    font-family: 'Tajawal', sans-serif;
+    background: #0b1120;
     color: #e2e8f0;
 }
 
@@ -21,8 +22,8 @@ header {
     display: flex;
     align-items: center;
     padding: 60px;
-    background: linear-gradient(rgba(15,23,42,0.7), rgba(15,23,42,0.9)),
-    url('https://images.unsplash.com/photo-1502920917128-1aa500764cbd');
+    background: linear-gradient(rgba(11,17,32,0.8), rgba(11,17,32,0.95)),
+    url('https://images.unsplash.com/photo-1548345680-f5475ea5df84'); /* صورة GIS */
     background-size: cover;
 }
 
@@ -31,7 +32,7 @@ header {
 }
 
 h1 {
-    font-size: 48px;
+    font-size: 50px;
 }
 
 .highlight {
@@ -42,7 +43,6 @@ h1 {
     margin-top: 20px;
     padding: 12px 25px;
     background: #38bdf8;
-    color: black;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -55,7 +55,6 @@ section {
 
 h2 {
     color: #38bdf8;
-    margin-bottom: 30px;
 }
 
 /* المشاريع */
@@ -66,7 +65,7 @@ h2 {
 }
 
 .card {
-    background: #1e293b;
+    background: #111827;
     border-radius: 16px;
     overflow: hidden;
     transition: 0.3s;
@@ -76,39 +75,24 @@ h2 {
     transform: translateY(-8px);
 }
 
-/* صورة المشروع */
 .card img {
     width: 100%;
     height: 220px;
     object-fit: cover;
 }
 
-/* محتوى */
 .card-content {
     padding: 20px;
 }
 
-.card-content h3 {
-    margin-top: 0;
-}
-
-/* تفاصيل مخفية */
 .details {
     display: none;
-    font-size: 14px;
     margin-top: 10px;
+    font-size: 14px;
     opacity: 0.85;
 }
 
-/* خريطة */
-.map-box {
-    height: 250px;
-    margin-top: 15px;
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-/* الفوتر */
+/* فوتر */
 footer {
     text-align: center;
     padding: 20px;
@@ -119,138 +103,48 @@ footer {
 
 <body>
 
-<!-- البداية -->
 <header>
     <div class="header-content">
-        <h1>همس <span class="highlight">الحارثي</span></h1>
-        <p>محللة نظم معلومات جغرافية (GIS) متخصصة في التحليل المكاني، وإدارة البيانات الجغرافية، ودعم اتخاذ القرار.</p>
+        <h1>همس <span class="highlight">سالم الحارثي</span></h1>
+        <p>محللة نظم معلومات جغرافية (GIS) متخصصة في التحليل المكاني ودعم اتخاذ القرار.</p>
         <button class="btn" onclick="goProjects()">استعراض المشاريع</button>
     </div>
 </header>
 
-<!-- المشاريع -->
 <section id="projects">
     <h2>المشاريع</h2>
 
     <div class="grid">
 
-        <!-- مشروع 1 -->
-        <div class="card" onclick="toggle(this)">
-            <img src="https://images.unsplash.com/photo-1581091215367-59ab6b3b3d8a">
-            <div class="card-content">
-                <h3>خطوط الشبكة الكهربائية في السعودية</h3>
-                <p>تحليل توزيع البنية التحتية للطاقة</p>
-                <div class="details">
-                    تحليل مكاني لتوزيع خطوط الكهرباء وربطها بالمناطق السكنية لدعم التخطيط المستقبلي.
-                </div>
-            </div>
-        </div>
-
-        <!-- مشروع 2 -->
         <div class="card" onclick="toggle(this)">
             <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b">
             <div class="card-content">
-                <h3>تحليل الاتجاه والمركز المتوسط</h3>
-                <p>تحليل إحصائي مكاني</p>
-                <div class="details">
-                    استخدام أدوات المركز المتوسط والانحراف الاتجاهي لفهم توزيع الظواهر.
-                </div>
+                <h3>توزيع الحاويات في جدة</h3>
+                <div class="details">تحليل مواقع الحاويات واقتراح تحسينات.</div>
             </div>
         </div>
 
-        <!-- مشروع 3 -->
+        <div class="card" onclick="toggle(this)">
+            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
+            <div class="card-content">
+                <h3>تأثير المرادم</h3>
+                <div class="details">تحليل بيئي باستخدام Buffer.</div>
+            </div>
+        </div>
+
         <div class="card" onclick="toggle(this)">
             <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429">
             <div class="card-content">
                 <h3>خريطة تفاعلية (HTML)</h3>
-                <p>تطوير ويب GIS</p>
-                <div class="details">
-                    خريطة تفاعلية تعرض معلومات الدول عند النقر باستخدام JavaScript.
-                </div>
-            </div>
-        </div>
-
-        <!-- مشروع 4 -->
-        <div class="card" onclick="toggle(this)">
-            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
-            <div class="card-content">
-                <h3>توزيع الحاويات في جدة</h3>
-                <p>إدارة النفايات</p>
-                <div class="details">
-                    تحليل توزيع الحاويات واقتراح مواقع جديدة لتحسين الكفاءة.
-                </div>
-            </div>
-        </div>
-
-        <!-- مشروع 5 -->
-        <div class="card" onclick="toggle(this)">
-            <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa">
-            <div class="card-content">
-                <h3>تأثير المرادم في جدة</h3>
-                <p>تحليل بيئي</p>
-                <div class="details">
-                    تقييم تأثير مواقع الطمر على المناطق المحيطة باستخدام Buffer.
-                </div>
-            </div>
-        </div>
-
-        <!-- مشروع 6 -->
-        <div class="card" onclick="toggle(this)">
-            <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05">
-            <div class="card-content">
-                <h3>التحليل الهيدرولوجي</h3>
-                <p>تحليل تضاريسي</p>
-                <div class="details">
-                    دراسة تدفق المياه باستخدام DEM وتحديد مجاري السيول.
-                </div>
-            </div>
-        </div>
-
-        <!-- مشروع 7 -->
-        <div class="card" onclick="toggle(this)">
-            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d">
-            <div class="card-content">
-                <h3>IDW و Kriging و Spline</h3>
-                <p>Interpolation</p>
-                <div class="details">
-                    مقارنة طرق الاستيفاء المكاني وتحليل دقتها.
-                </div>
-            </div>
-        </div>
-
-        <!-- مشروع 8 -->
-        <div class="card" onclick="toggle(this)">
-            <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231">
-            <div class="card-content">
-                <h3>تأثير المحارق في جدة</h3>
-                <p>تحليل بيئي</p>
-                <div class="details">
-                    دراسة تأثير المحارق على جودة البيئة والمناطق السكنية.
-                </div>
+                <div class="details">عرض بيانات عند الضغط على الخريطة.</div>
             </div>
         </div>
 
     </div>
 </section>
 
-<!-- عني -->
-<section>
-    <h2>نبذة عني</h2>
-    <p>
-    محللة نظم معلومات جغرافية أمتلك خبرة في التحليل المكاني، إعداد الخرائط، 
-    ونمذجة البيانات الجغرافية لدعم اتخاذ القرار في المجالات البيئية والحضرية.
-    </p>
-</section>
-
-<!-- تواصل -->
-<section>
-    <h2>تواصل معي</h2>
-    <p>البريد: gmailhamssallem112@</p>
-    <p>الهاتف: 0560739523</p>
-</section>
-
 <footer>
-    © همس الحارثي
+    © همس سالم الحارثي
 </footer>
 
 <script>
