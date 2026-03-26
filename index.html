@@ -5,15 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>همس سالم الحارثي | GIS</title>
 
-<!-- خط احترافي -->
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 body {
     margin: 0;
     font-family: 'Tajawal', sans-serif;
-    background: #0b1120;
-    color: #e2e8f0;
+    background: #05010a;
+    color: #eee;
 }
 
 /* الهيدر */
@@ -22,27 +21,23 @@ header {
     display: flex;
     align-items: center;
     padding: 60px;
-    background: linear-gradient(rgba(11,17,32,0.8), rgba(11,17,32,0.95)),
-    url('https://images.unsplash.com/photo-1548345680-f5475ea5df84'); /* صورة GIS */
+    background: linear-gradient(rgba(5,1,10,0.8), rgba(5,1,10,0.95)),
+    url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564'); /* صورة GIS */
     background-size: cover;
 }
 
-.header-content {
-    max-width: 600px;
+.highlight {
+    color: #a855f7;
 }
 
 h1 {
     font-size: 50px;
 }
 
-.highlight {
-    color: #38bdf8;
-}
-
 .btn {
     margin-top: 20px;
     padding: 12px 25px;
-    background: #38bdf8;
+    background: #a855f7;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -54,7 +49,7 @@ section {
 }
 
 h2 {
-    color: #38bdf8;
+    color: #a855f7;
 }
 
 /* المشاريع */
@@ -65,7 +60,7 @@ h2 {
 }
 
 .card {
-    background: #111827;
+    background: #0f0a1a;
     border-radius: 16px;
     overflow: hidden;
     transition: 0.3s;
@@ -85,11 +80,31 @@ h2 {
     padding: 20px;
 }
 
-.details {
+/* POPUP */
+.popup {
     display: none;
-    margin-top: 10px;
-    font-size: 14px;
-    opacity: 0.85;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: #0f0a1a;
+    padding: 30px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 600px;
+}
+
+.close {
+    float: left;
+    font-size: 25px;
+    cursor: pointer;
 }
 
 /* فوتر */
@@ -104,59 +119,106 @@ footer {
 <body>
 
 <header>
-    <div class="header-content">
+    <div>
         <h1>همس <span class="highlight">سالم الحارثي</span></h1>
-        <p>محللة نظم معلومات جغرافية (GIS) متخصصة في التحليل المكاني ودعم اتخاذ القرار.</p>
-        <button class="btn" onclick="goProjects()">استعراض المشاريع</button>
+        <p>محللة نظم معلومات جغرافية متخصصة في التحليل المكاني والبيئي</p>
+        <button class="btn" onclick="goProjects()">المشاريع</button>
     </div>
 </header>
 
 <section id="projects">
-    <h2>المشاريع</h2>
+<h2>المشاريع</h2>
 
-    <div class="grid">
+<div class="grid">
 
-        <div class="card" onclick="toggle(this)">
-            <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b">
-            <div class="card-content">
-                <h3>توزيع الحاويات في جدة</h3>
-                <div class="details">تحليل مواقع الحاويات واقتراح تحسينات.</div>
-            </div>
-        </div>
+<!-- 1 -->
+<div class="card" onclick="openPopup('خطوط الشبكة الكهربائية',
+'تحليل توزيع الشبكة الكهربائية في السعودية لتحديد مناطق التغطية والضغط.\n\nالمنهجية: Spatial Analysis.\n\nالنتيجة: دعم التخطيط للطاقة.')">
+<img src="https://images.unsplash.com/photo-1581091215367-59ab6b3b3d8a">
+<div class="card-content"><h3>الشبكة الكهربائية</h3></div>
+</div>
 
-        <div class="card" onclick="toggle(this)">
-            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
-            <div class="card-content">
-                <h3>تأثير المرادم</h3>
-                <div class="details">تحليل بيئي باستخدام Buffer.</div>
-            </div>
-        </div>
+<!-- 2 -->
+<div class="card" onclick="openPopup('المركز المتوسط والاتجاه',
+'تحليل توزيع البيانات باستخدام Mean Center و Direction.\n\nيساعد على فهم نمط التوزيع.')">
+<img src="https://images.unsplash.com/photo-1524661135-423995f22d0b">
+<div class="card-content"><h3>المركز المتوسط</h3></div>
+</div>
 
-        <div class="card" onclick="toggle(this)">
-            <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429">
-            <div class="card-content">
-                <h3>خريطة تفاعلية (HTML)</h3>
-                <div class="details">عرض بيانات عند الضغط على الخريطة.</div>
-            </div>
-        </div>
+<!-- 3 -->
+<div class="card" onclick="openPopup('خريطة تفاعلية HTML',
+'خريطة تفاعلية تعرض اسم الدولة عند الضغط باستخدام JavaScript.\n\nيميز مهارات Web GIS.')">
+<img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429">
+<div class="card-content"><h3>خريطة تفاعلية</h3></div>
+</div>
 
-    </div>
+<!-- 4 -->
+<div class="card" onclick="openPopup('توزيع الحاويات',
+'تحليل توزيع الحاويات في جدة.\n\nالنتيجة: اقتراح مواقع جديدة.')">
+<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
+<div class="card-content"><h3>الحاويات</h3></div>
+</div>
+
+<!-- 5 -->
+<div class="card" onclick="openPopup('تأثير المرادم',
+'تحليل بيئي باستخدام Buffer.\n\nقياس التأثير على المناطق.')">
+<img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa">
+<div class="card-content"><h3>المرادم</h3></div>
+</div>
+
+<!-- 6 -->
+<div class="card" onclick="openPopup('تحليل هيدرولوجي',
+'تحليل تدفق المياه باستخدام DEM.\n\nتحديد مجاري السيول.')">
+<img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05">
+<div class="card-content"><h3>الهيدرولوجي</h3></div>
+</div>
+
+<!-- 7 -->
+<div class="card" onclick="openPopup('Interpolation',
+'مقارنة IDW و Kriging و Spline.\n\nتحليل الدقة.')">
+<img src="https://images.
+ unsplash.com/photo-1504384308090-c894fdcc538d">
+<div class="card-content"><h3>IDW / Kriging</h3></div>
+</div>
+
+<!-- 8 -->
+<div class="card" onclick="openPopup('تأثير المحارق',
+'تحليل تأثير المحارق بيئياً.\n\nتحديد مناطق الخطر.')">
+<img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231">
+<div class="card-content"><h3>المحارق</h3></div>
+</div>
+
+</div>
 </section>
 
+<!-- POPUP -->
+<div id="popup" class="popup">
+<div class="popup-content">
+<span class="close" onclick="closePopup()">×</span>
+<h2 id="title"></h2>
+<p id="text"></p>
+</div>
+</div>
+
 <footer>
-    © همس سالم الحارثي
+© همس سالم الحارثي
 </footer>
 
 <script>
 function goProjects() {
-    document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
+document.getElementById("projects").scrollIntoView({behavior:"smooth"});
 }
 
-function toggle(card) {
-    let d = card.querySelector(".details");
-    d.style.display = d.style.display === "block" ? "none" : "block";
+function openPopup(t,txt){
+document.getElementById("title").innerText=t;
+document.getElementById("text").innerText=txt;
+document.getElementById("popup").style.display="flex";
+}
+
+function closePopup(){
+document.getElementById("popup").style.display="none";
 }
 </script>
 
 </body>
-</html>
+</html>   
