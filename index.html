@@ -8,74 +8,89 @@
 body{
     font-family: Arial;
     margin:0;
-    background:#f5f5f5;
+    background:linear-gradient(to bottom,#f8fafc,#e2e8f0);
 }
 
-/* الشريط العلوي */
 header{
     background:#0f172a;
     color:white;
-    padding:15px;
+    padding:30px;
     text-align:center;
 }
 
-/* المشاريع */
+header h1{
+    margin:0;
+}
+
+header p{
+    margin:5px;
+    opacity:0.8;
+}
+
+/* تعريف */
+.about{
+    padding:30px;
+    text-align:center;
+}
+
 .projects{
     display:flex;
     justify-content:center;
-    gap:20px;
+    gap:25px;
     padding:40px;
     flex-wrap:wrap;
 }
 
 .card{
-    width:280px;
+    width:300px;
     background:white;
-    border-radius:12px;
+    border-radius:15px;
     overflow:hidden;
     cursor:pointer;
-    transition:0.3s;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    transition:0.4s;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
 }
 
 .card:hover{
-    transform:scale(1.05);
+    transform:translateY(-10px);
 }
 
 .card img{
     width:100%;
-    height:180px;
+    height:200px;
     object-fit:cover;
 }
 
 .card h3{
+    text-align:center;
     padding:15px;
 }
 
-/* الداشبورد */
 .dashboard{
     display:none;
     padding:30px;
+    max-width:900px;
+    margin:auto;
 }
 
 .map{
     width:100%;
-    margin:15px 0;
-    border-radius:10px;
+    margin:20px 0;
+    border-radius:12px;
 }
 
 .section-title{
-    margin-top:25px;
+    margin-top:30px;
     color:#0f172a;
+    border-bottom:2px solid #ddd;
 }
 
 button{
     padding:10px 20px;
-    margin-bottom:20px;
     background:#0f172a;
     color:white;
     border:none;
-    border-radius:8px;
+    border-radius:10px;
     cursor:pointer;
 }
 </style>
@@ -85,75 +100,81 @@ button{
 <body>
 
 <header>
-<h1>Portfolio GIS</h1>
-<p>تحليل مكاني باستخدام نظم المعلومات الجغرافية</p>
+<h1>اسمك هنا</h1>
+<p>محللة نظم معلومات جغرافية (GIS)</p>
 </header>
 
-<!-- المشاريع -->
+<section class="about">
+<p>
+أنا مهتمة بالتحليل المكاني واستخدام GIS لدعم اتخاذ القرار، وأعمل على مشاريع تحليل التوزيع المكاني مثل الخدمات الصحية والكثافة السكانية.
+</p>
+</section>
+
 <div class="projects" id="projects">
 
-    <!-- مشروع الصحة -->
-    <div class="card" onclick="openDashboard('health')">
-        <img src="images/health1.jpg">
-        <h3>توزيع المراكز الصحية</h3>
-    </div>
+<div class="card" onclick="openDashboard('health')">
+<img src="health1.jpg">
+<h3>توزيع المراكز الصحية</h3>
+</div>
 
 </div>
 
-<!-- الداشبورد -->
 <div class="dashboard" id="dashboard">
-    <button onclick="goBack()">رجوع</button>
-    <div id="content"></div>
+<button onclick="goBack()">رجوع</button>
+<div id="content"></div>
 </div>
 
 <script>
 
 function openDashboard(type){
-    document.getElementById("projects").style.display = "none";
-    document.getElementById("dashboard").style.display = "block";
+document.getElementById("projects").style.display="none";
+document.getElementById("dashboard").style.display="block";
 
-    let content = document.getElementById("content");
+let content=document.getElementById("content");
 
-    if(type === "health"){
-        content.innerHTML = `
-        <h2 class="section-title">توزيع المراكز الصحية في جدة</h2>
+if(type==="health"){
+content.innerHTML=`
 
-        <p>
-        تحليل كفاءة توزيع المراكز الصحية مقارنة بالكثافة السكانية لتحديد الفجوات في التغطية الصحية.
-        </p>
+<h2 class="section-title">توزيع المراكز الصحية في جدة</h2>
 
-        <h3 class="section-title">الخرائط</h3>
+<p>
+تحليل توزيع المراكز الصحية مقارنة بالكثافة السكانية لتحديد الفجوات في التغطية الصحية.
+</p>
 
-        <img src="images/health1.jpg" class="map">
-        <img src="images/health2.jpg" class="map">
-        <img src="images/health3.jpg" class="map">
+<img src="health1.jpg" class="map">
+<img src="health2.jpg" class="map">
+<img src="health3.jpg" class="map">
 
-        <h3 class="section-title">النتائج</h3>
-        <p>
-        - تركز المراكز في الأحياء عالية الكثافة مثل الزهراء والروابي<br>
-        - فجوات في العزيزية وأم السلم<br>
-        - حاجة لتعزيز الخدمات في الفيصلية والمربع
-        </p>
+<h3 class="section-title">النتائج</h3>
 
-        <h3 class="section-title">تحليل التغطية</h3>
-        <p>
-        🟢 جيدة<br>
-        🟡 متوسطة<br>
-        🔴 ضعيفة<br>
-        🟠 فجوات كبيرة
-        </p>
+<p>
+- تركز المراكز في الأحياء عالية الكثافة مثل الزهراء والروابي<br>
+- وجود فجوات في العزيزية وأم السلم<br>
+- الحاجة لتعزيز الخدمات في الفيصلية والمربع
+</p>
 
-        <h3 class="section-title">الأدوات</h3>
-        <p>
-        ArcGIS Pro - Kernel Density - Spatial Analysis
-        </p>
-        `;
-    }
+<h3 class="section-title">تحليل التغطية</h3>
+
+<p>
+🟢 تغطية جيدة<br>
+🟡 متوسطة<br>
+🔴 ضعيفة<br>
+🟠 فجوات كبيرة
+</p>
+
+<h3 class="section-title">الأدوات</h3>
+
+<p>
+ArcGIS Pro - Spatial Analysis - Kernel Density
+</p>
+
+`;
+}
 }
 
 function goBack(){
-    document.getElementById("projects").style.display = "flex";
-    document.getElementById("dashboard").style.display = "none";
+document.getElementById("projects").style.display="flex";
+document.getElementById("dashboard").style.display="none";
 }
 
 </script>
