@@ -1,244 +1,162 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>همس سالم الحارثي | GIS</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700&display=swap" rel="stylesheet">
+<title>Portfolio GIS</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: 'Tajawal', sans-serif;
-    background: #05010a;
-    color: #eee;
+body{
+    font-family: Arial;
+    margin:0;
+    background:#f5f5f5;
 }
 
-/* الهيدر */
-header {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 60px;
-    background: linear-gradient(rgba(5,1,10,0.85), rgba(5,1,10,0.95)),
-    url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564');
-    background-size: cover;
-}
-
-.name {
-    font-size: 52px;
-    color: #a855f7;
-    text-shadow: 0 0 20px rgba(168,85,247,0.6);
-}
-
-.btn {
-    margin-top: 20px;
-    padding: 12px 25px;
-    background: #a855f7;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-/* الأقسام */
-section {
-    padding: 80px 60px;
+/* الشريط العلوي */
+header{
+    background:#0f172a;
+    color:white;
+    padding:15px;
+    text-align:center;
 }
 
 /* المشاريع */
-#projects {
-    background: linear-gradient(180deg, #1a0b2e, #2a0f4a);
+.projects{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    padding:40px;
+    flex-wrap:wrap;
 }
 
-h2 {
-    color: #c084fc;
+.card{
+    width:280px;
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* Grid */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 25px;
+.card:hover{
+    transform:scale(1.05);
 }
 
-/* الكارد */
-.card {
-    background: #140a24;
-    border-radius: 16px;
-    overflow: hidden;
-    transition: 0.3s;
-    opacity: 0;
-    transform: translateY(30px);
+.card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
 }
 
-.card.show {
-    opacity: 1;
-    transform: translateY(0);
+.card h3{
+    padding:15px;
 }
 
-.card:hover {
-    transform: translateY(-10px) scale(1.02);
+/* الداشبورد */
+.dashboard{
+    display:none;
+    padding:30px;
 }
 
-.card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
+.map{
+    width:100%;
+    margin:15px 0;
+    border-radius:10px;
 }
 
-.card-content {
-    padding: 20px;
+.section-title{
+    margin-top:25px;
+    color:#0f172a;
 }
 
-/* Popup */
-.popup {
-    display: none;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.85);
-    top: 0;
-    left: 0;
-    justify-content: center;
-    align-items: center;
-}
-
-.popup-content {
-    background: #140a24;
-    padding: 30px;
-    border-radius: 15px;
-    width: 85%;
-    max-width: 600px;
-    animation: fadeIn 0.3s ease;
-}
-
-.close {
-    float: left;
-    font-size: 25px;
-    cursor: pointer;
-}
-
-/* تواصل */
-.contact-box {
-    background: #0f0a1a;
-    padding: 30px;
-    border-radius: 15px;
-    text-align: center;
-}
-
-.contact-box a {
-    color: #c084fc;
-    text-decoration: none;
-    display: block;
-    margin-top: 10px;
-}
-
-/* Animation */
-@keyframes fadeIn {
-    from {opacity: 0; transform: scale(0.9);}
-    to {opacity: 1; transform: scale(1);}
+button{
+    padding:10px 20px;
+    margin-bottom:20px;
+    background:#0f172a;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
 }
 </style>
+
 </head>
 
 <body>
 
 <header>
-<div>
-<h1 class="name">همس سالم الحارثي</h1>
-<p>محللة نظم معلومات جغرافية متخصصة في التحليل المكاني والبيئي ودعم اتخاذ القرار</p>
-<button class="btn" onclick="goProjects()">استعراض المشاريع</button>
-</div>
+<h1>Portfolio GIS</h1>
+<p>تحليل مكاني باستخدام نظم المعلومات الجغرافية</p>
 </header>
 
-<section id="projects">
-<h2>المشاريع</h2>
+<!-- المشاريع -->
+<div class="projects" id="projects">
 
-<div class="grid">
-
-<div class="card" onclick="openPopup('الشبكة الكهربائية','تحليل توزيع الشبكة الكهربائية لدعم التخطيط.')">
-<img src="https://images.unsplash.com/photo-1581091215367-59ab6b3b3d8a">
-<div class="card-content">الشبكة الكهربائية</div>
-</div>
-
-<div class="card" onclick="openPopup('المركز المتوسط','تحليل الاتجاه والتوزيع المكاني.')">
-<img src="https://images.unsplash.com/photo-1524661135-423995f22d0b">
-<div class="card-content">المركز المتوسط</div>
-</div>
-
-<div class="card" onclick="openPopup('خريطة تفاعلية','Web GIS باستخدام JavaScript.')">
-<img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429">
-<div class="card-content">خريطة تفاعلية</div>
-</div>
-
-<div class="card" onclick="openPopup('الحاويات','تحليل توزيع الحاويات.')">
-<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
-<div class="card-content">الحاويات</div>
-</div>
-
-<div class="card" onclick="openPopup('المرادم','تحليل التأثير البيئي.')">
-<img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa">
-<div class="card-content">المرادم</div>
-</div>
-
-<div class="card" onclick="openPopup('الهيدرولوجي','تحليل تدفق المياه.')">
-<img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05">
-<div class="card-content">الهيدرولوجي</div>
-</div>
-<img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d">
-<div class="card-content">Interpolation</div>
-</div>
-
-<div class="card" onclick="openPopup('المحارق','تحليل التأثير البيئي.')">
-<img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231">
-<div class="card-content">المحارق</div>
-</div>
+    <!-- مشروع الصحة -->
+    <div class="card" onclick="openDashboard('health')">
+        <img src="images/health1.jpg">
+        <h3>توزيع المراكز الصحية</h3>
+    </div>
 
 </div>
-</section>
 
-<section>
-<h2>تواصل معي</h2>
-<div class="contact-box">
-<p>📧 gmailhamssallem112@</p>
-<p>📱 0560739523</p>
-<a href="#">LinkedIn</a>
-</div>
-</section>
-
-<div id="popup" class="popup">
-<div class="popup-content">
-<span class="close" onclick="closePopup()">×</span>
-<h2 id="title"></h2>
-<p id="text"></p>
-</div>
+<!-- الداشبورد -->
+<div class="dashboard" id="dashboard">
+    <button onclick="goBack()">رجوع</button>
+    <div id="content"></div>
 </div>
 
 <script>
-function goProjects(){
-document.getElementById("projects").scrollIntoView({behavior:"smooth"});
+
+function openDashboard(type){
+    document.getElementById("projects").style.display = "none";
+    document.getElementById("dashboard").style.display = "block";
+
+    let content = document.getElementById("content");
+
+    if(type === "health"){
+        content.innerHTML = `
+        <h2 class="section-title">توزيع المراكز الصحية في جدة</h2>
+
+        <p>
+        تحليل كفاءة توزيع المراكز الصحية مقارنة بالكثافة السكانية لتحديد الفجوات في التغطية الصحية.
+        </p>
+
+        <h3 class="section-title">الخرائط</h3>
+
+        <img src="images/health1.jpg" class="map">
+        <img src="images/health2.jpg" class="map">
+        <img src="images/health3.jpg" class="map">
+
+        <h3 class="section-title">النتائج</h3>
+        <p>
+        - تركز المراكز في الأحياء عالية الكثافة مثل الزهراء والروابي<br>
+        - فجوات في العزيزية وأم السلم<br>
+        - حاجة لتعزيز الخدمات في الفيصلية والمربع
+        </p>
+
+        <h3 class="section-title">تحليل التغطية</h3>
+        <p>
+        🟢 جيدة<br>
+        🟡 متوسطة<br>
+        🔴 ضعيفة<br>
+        🟠 فجوات كبيرة
+        </p>
+
+        <h3 class="section-title">الأدوات</h3>
+        <p>
+        ArcGIS Pro - Kernel Density - Spatial Analysis
+        </p>
+        `;
+    }
 }
 
-function openPopup(t,txt){
-document.getElementById("title").innerText=t;
-document.getElementById("text").innerText=txt;
-document.getElementById("popup").style.display="flex";
+function goBack(){
+    document.getElementById("projects").style.display = "flex";
+    document.getElementById("dashboard").style.display = "none";
 }
 
-function closePopup(){
-document.getElementById("popup").style.display="none";
-}
-
-/* Animation */
-window.onload = () => {
-let cards = document.querySelectorAll('.card');
-cards.forEach((c,i)=>{
-setTimeout(()=>{c.classList.add('show')}, i*150);
-});
-}
 </script>
 
 </body>
 </html>
-<div class="card" onclick="openPopup('Interpolation','IDW و Kriging.')">
