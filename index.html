@@ -1,118 +1,227 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - همس سالم الحارثي</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Cairo', sans-serif;
-      background-color: #f4f6f8;
-      color: #333;
-    }
-    header {
-      background: url('https://upload.wikimedia.org/wikipedia/commons/7/7a/ArcGIS_logo.png') center/cover no-repeat;
-      height: 350px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.6);
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-    header p {
-      font-size: 1.2rem;
-    }
-    section {
-      padding: 50px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-    h2 {
-      text-align: center;
-      color: #1e3a5f;
-      margin-bottom: 40px;
-    }
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
-    .project-card {
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-      cursor: pointer;
-    }
-    .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 25px rgba(0,0,0,0.2);
-    }
-    .project-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    .project-card h3 {
-      margin: 15px;
-      font-size: 1.2rem;
-      color: #1e3a5f;
-    }
-    .contact {
-      text-align: center;
-      background: #1e3a5f;
-      color: white;
-      padding: 40px 20px;
-      border-radius: 12px;
-      margin-top: 50px;
-    }
-    .contact a {
-      color: #f4f6f8;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    @media(max-width:600px){
-      header h1 { font-size: 2rem; }
-      header p { font-size: 1rem; }
-    }
-  </style>
+<meta charset="UTF-8">
+<title>همس سالم الحارثي | GIS Portfolio</title>
+
+<style>
+body{
+    font-family: Arial;
+    margin:0;
+    background:#f8fafc;
+}
+
+/* الهيدر */
+header{
+    background:#0f172a;
+    color:white;
+    padding:40px;
+    text-align:center;
+}
+
+header h1{
+    margin:0;
+    font-size:32px;
+}
+
+header p{
+    margin-top:10px;
+    opacity:0.8;
+}
+
+/* صورة تخصص */
+.hero{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+/* التعريف */
+.about{
+    padding:40px;
+    text-align:center;
+    max-width:800px;
+    margin:auto;
+}
+
+.about h2{
+    color:#0f172a;
+}
+
+/* المشاريع */
+.projects{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    padding:40px;
+    flex-wrap:wrap;
+}
+
+.card{
+    width:300px;
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 6px 15px rgba(0,0,0,0.1);
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.card h3{
+    text-align:center;
+    padding:15px;
+}
+
+/* الداشبورد */
+.dashboard{
+    display:none;
+    padding:30px;
+    max-width:900px;
+    margin:auto;
+}
+
+.map{
+    width:100%;
+    margin:20px 0;
+    border-radius:10px;
+}
+
+.section-title{
+    margin-top:30px;
+    color:#0f172a;
+    border-bottom:2px solid #ddd;
+}
+
+button{
+    padding:10px 20px;
+    background:#0f172a;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* التواصل */
+.contact{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+.contact h2{
+    margin-bottom:10px;
+}
+</style>
+
 </head>
+
 <body>
 
-  <header>
-    <h1>همس سالم الحارثي</h1>
-    <p>متخصصة في نظم المعلومات الجغرافية (GIS)</p>
-  </header>
+<header>
+<h1>همس سالم الحارثي</h1>
+<p>محللة نظم معلومات جغرافية (GIS Analyst)</p>
+</header>
 
-  <section>
-    <h2>مشاريعي</h2>
-    <div class="projects" id="projects">
-      <!-- مشاريعك راح تظهر هنا -->
-      <div class="project-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/World_map_blank_without_borders.svg" alt="مشروع 1">
-        <h3>مشروع الخرائط التفاعلية</h3>
-      </div>
-      <div class="project-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/ArcGIS_Pro_screenshot.png" alt="مشروع 2">
-        <h3>تحليل توزيع الخدمات</h3>
-      </div>
-      <!-- ممكن تضيفي مشاريع أكثر بنفس الطريقة -->
-    </div>
-  </section>
+<!-- صورة تخصص -->
+<img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789" class="hero">
 
-  <section class="contact">
-    <h2>تواصل معي</h2>
-    <p>📧 البريد الإلكتروني: <a href="mailto:hams@example.com">hams@example.com</a></p>
-    <p>🌐 تويتر: <a href="https://twitter.com/hams">@hams</a></p>
-  </section>
+<!-- التعريف -->
+<section class="about">
+<h2>نبذة عني</h2>
+<p>
+أنا مختصة في نظم المعلومات الجغرافية (GIS) وأهتم بتحليل البيانات المكانية لدعم اتخاذ القرار. 
+أمتلك مهارات في تحليل التوزيع المكاني، ودراسة الكثافة السكانية، واستخدام أدوات GIS لإنشاء خرائط تحليلية احترافية تساعد في فهم الأنماط الجغرافية وتحديد الفجوات في الخدمات.
+</p>
+</section>
+
+<!-- المشاريع -->
+<div class="projects" id="projects">
+
+<div class="card" onclick="openDashboard('health')">
+<img src="health1.jpg">
+<h3>توزيع المراكز الصحية</h3>
+</div>
+
+</div>
+
+<!-- الداشبورد -->
+<div class="dashboard" id="dashboard">
+<button onclick="goBack()">رجوع</button>
+<div id="content"></div>
+</div>
+
+<!-- التواصل -->
+<section class="contact">
+<h2>تواصل معي</h2>
+<p>📧 email@example.com</p>
+<p>📱 05xxxxxxxx</p>
+</section>
+
+<script>
+
+function openDashboard(type){
+document.getElementById("projects").style.display="none";
+document.getElementById("dashboard").style.display="block";
+
+let content=document.getElementById("content");
+
+if(type==="health"){
+content.innerHTML=`
+
+<h2 class="section-title">توزيع المراكز الصحية في جدة</h2>
+
+<p>
+تحليل توزيع المراكز الصحية مقارنة بالكثافة السكانية لتحديد الفجوات في التغطية الصحية.
+</p>
+
+<img src="health1.jpg" class="map">
+<img src="health2.jpg" class="map">
+<img src="health3.jpg" class="map">
+
+<h3 class="section-title">النتائج</h3>
+
+<p>
+- تركز المراكز في الأحياء عالية الكثافة مثل الزهراء والروابي<br>
+- وجود فجوات في العزيزية وأم السلم<br>
+- الحاجة لتعزيز الخدمات في الفيصلية والمربع
+</p>
+
+<h3 class="section-title">تحليل التغطية</h3>
+
+<p>
+🟢 تغطية جيدة<br>
+🟡 متوسطة<br>
+🔴 ضعف في الخدمات<br>
+🟠 فجوات كبيرة
+</p>
+
+<h3 class="section-title">الأدوات المستخدمة</h3>
+
+<p>
+ArcGIS Pro - Spatial Analysis - Kernel Density
+</p>
+
+`;
+}
+}
+
+function goBack(){
+document.getElementById("projects").style.display="flex";
+document.getElementById("dashboard").style.display="none";
+}
+
+</script>
 
 </body>
 </html>
