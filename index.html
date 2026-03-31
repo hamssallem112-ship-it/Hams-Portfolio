@@ -2,37 +2,53 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
-<title>Portfolio GIS</title>
+<title>همس سالم الحارثي | GIS Portfolio</title>
 
 <style>
 body{
     font-family: Arial;
     margin:0;
-    background:linear-gradient(to bottom,#f8fafc,#e2e8f0);
+    background:#f8fafc;
 }
 
+/* الهيدر */
 header{
     background:#0f172a;
     color:white;
-    padding:30px;
+    padding:40px;
     text-align:center;
 }
 
 header h1{
     margin:0;
+    font-size:32px;
 }
 
 header p{
-    margin:5px;
+    margin-top:10px;
     opacity:0.8;
 }
 
-/* تعريف */
-.about{
-    padding:30px;
-    text-align:center;
+/* صورة تخصص */
+.hero{
+    width:100%;
+    height:250px;
+    object-fit:cover;
 }
 
+/* التعريف */
+.about{
+    padding:40px;
+    text-align:center;
+    max-width:800px;
+    margin:auto;
+}
+
+.about h2{
+    color:#0f172a;
+}
+
+/* المشاريع */
 .projects{
     display:flex;
     justify-content:center;
@@ -47,12 +63,12 @@ header p{
     border-radius:15px;
     overflow:hidden;
     cursor:pointer;
-    transition:0.4s;
-    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    transition:0.3s;
+    box-shadow:0 6px 15px rgba(0,0,0,0.1);
 }
 
 .card:hover{
-    transform:translateY(-10px);
+    transform:translateY(-8px);
 }
 
 .card img{
@@ -66,6 +82,7 @@ header p{
     padding:15px;
 }
 
+/* الداشبورد */
 .dashboard{
     display:none;
     padding:30px;
@@ -76,7 +93,7 @@ header p{
 .map{
     width:100%;
     margin:20px 0;
-    border-radius:12px;
+    border-radius:10px;
 }
 
 .section-title{
@@ -90,8 +107,20 @@ button{
     background:#0f172a;
     color:white;
     border:none;
-    border-radius:10px;
+    border-radius:8px;
     cursor:pointer;
+}
+
+/* التواصل */
+.contact{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+.contact h2{
+    margin-bottom:10px;
 }
 </style>
 
@@ -100,16 +129,23 @@ button{
 <body>
 
 <header>
-<h1>اسمك هنا</h1>
-<p>محللة نظم معلومات جغرافية (GIS)</p>
+<h1>همس سالم الحارثي</h1>
+<p>محللة نظم معلومات جغرافية (GIS Analyst)</p>
 </header>
 
+<!-- صورة تخصص -->
+<img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789" class="hero">
+
+<!-- التعريف -->
 <section class="about">
+<h2>نبذة عني</h2>
 <p>
-أنا مهتمة بالتحليل المكاني واستخدام GIS لدعم اتخاذ القرار، وأعمل على مشاريع تحليل التوزيع المكاني مثل الخدمات الصحية والكثافة السكانية.
+أنا مختصة في نظم المعلومات الجغرافية (GIS) وأهتم بتحليل البيانات المكانية لدعم اتخاذ القرار. 
+أمتلك مهارات في تحليل التوزيع المكاني، ودراسة الكثافة السكانية، واستخدام أدوات GIS لإنشاء خرائط تحليلية احترافية تساعد في فهم الأنماط الجغرافية وتحديد الفجوات في الخدمات.
 </p>
 </section>
 
+<!-- المشاريع -->
 <div class="projects" id="projects">
 
 <div class="card" onclick="openDashboard('health')">
@@ -119,10 +155,18 @@ button{
 
 </div>
 
+<!-- الداشبورد -->
 <div class="dashboard" id="dashboard">
 <button onclick="goBack()">رجوع</button>
 <div id="content"></div>
 </div>
+
+<!-- التواصل -->
+<section class="contact">
+<h2>تواصل معي</h2>
+<p>📧 email@example.com</p>
+<p>📱 05xxxxxxxx</p>
+</section>
 
 <script>
 
@@ -158,11 +202,11 @@ content.innerHTML=`
 <p>
 🟢 تغطية جيدة<br>
 🟡 متوسطة<br>
-🔴 ضعيفة<br>
+🔴 ضعف في الخدمات<br>
 🟠 فجوات كبيرة
 </p>
 
-<h3 class="section-title">الأدوات</h3>
+<h3 class="section-title">الأدوات المستخدمة</h3>
 
 <p>
 ArcGIS Pro - Spatial Analysis - Kernel Density
