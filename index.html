@@ -28,25 +28,24 @@ header img{ width:150px; margin-top:20px; border-radius:10px; }
 button{ margin-top:20px; padding:12px 25px; background:#6366f1; border:none; color:white; cursor:pointer; font-size:16px; border-radius:8px;}
 
 /* SECTIONS */
-section{ padding:50px 20px; max-width:1100px; margin:auto; background: rgba(255,255,255,0.8); border-radius:12px; margin-bottom:40px;}
+section{ padding:50px 20px; max-width:1100px; margin:auto; background: rgba(255,255,255,0.85); border-radius:12px; margin-bottom:40px;}
 h2{ margin-bottom:25px; border-bottom:3px solid #6366f1; display:inline-block; padding-bottom:5px;}
 
-/* PROJECTS LIST */
-.project-list{
-    list-style:none;
-    padding:0;
+/* PROJECT GRID */
+.project-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
 }
-.project-list li{
-    background:#f1f5f9;
-    padding:15px 20px;
-    margin-bottom:15px;
-    border-radius:10px;
+.project-grid img{
+    width:100%;
+    border-radius:12px;
     cursor:pointer;
     transition: transform 0.3s, box-shadow 0.3s;
 }
-.project-list li:hover{
-    transform: scale(1.02);
-    box-shadow:0 8px 15px rgba(0,0,0,0.2);
+.project-grid img:hover{
+    transform: scale(1.05);
+    box-shadow:0 10px 20px rgba(0,0,0,0.3);
 }
 
 /* POPUP */
@@ -87,6 +86,33 @@ h2{ margin-bottom:25px; border-bottom:3px solid #6366f1; display:inline-block; p
     from{opacity:0; transform: translateY(-20px);}
     to{opacity:1; transform: translateY(0);}
 }
+
+/* SKILLS */
+.skills-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+}
+.skills-list span{
+    background:#6366f1;
+    color:white;
+    padding:10px 15px;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+/* CONTACT */
+.contact-list{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+.contact-list a{
+    text-decoration:none;
+    color:#0f172a;
+    transition: color 0.3s;
+}
+.contact-list a:hover{ color:#6366f1; }
 </style>
 </head>
 <body>
@@ -101,16 +127,44 @@ h2{ margin-bottom:25px; border-bottom:3px solid #6366f1; display:inline-block; p
 
 <section id="projects">
     <h2>المشاريع</h2>
-    <ul class="project-list">
-        <li onclick="openModal('خطوط الشبكة الكهربائية للسعودية','https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Electrical_grid_map_sample.svg/512px-Electrical_grid_map_sample.svg.png','تحليل خطوط الشبكة الكهربائية وتوزيعها عبر المملكة لتحسين التخطيط وإدارة البنية التحتية.')">خطوط الشبكة الكهربائية للسعودية</li>
-        <li onclick="openModal('خريطة المركز المتوسط وخريطة توزيع الاتجاه','https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Map_projection_sample.svg/512px-Map_projection_sample.svg.png','تحليل المركز المتوسط والاتجاهات لتوزيع الموارد أو الخدمات في منطقة محددة.')">خريطة المركز المتوسط وخريطة توزيع الاتجاه</li>
-        <li onclick="openModal('كود HTML لخريطة تفاعلية','https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Interactive_map_icon.svg/512px-Interactive_map_icon.svg.png','خريطة تفاعلية تضغطين على الدولة ليظهر اسمها باستخدام HTML وJS.')">كود HTML لخريطة تفاعلية</li>
-        <li onclick="openModal('توزيع الحاويات لمدينة جدة','https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Jeddah_map_sample.svg/512px-Jeddah_map_sample.svg.png','تحليل مواقع الحاويات لتسهيل جمع النفايات وتحسين الخدمات البيئية.')">توزيع الحاويات لمدينة جدة</li>
-        <li onclick="openModal('تأثير المرادم لمدينة جدة','https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Landfill_impact_map_sample.svg/512px-Landfill_impact_map_sample.svg.png','تقييم تأثير مواقع المرادم على المناطق السكنية والبيئة.')">تأثير المرادم لمدينة جدة</li>
-        <li onclick="openModal('خريطة التحليل الهيدرولوجي','https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Hydrology_map_sample.svg/512px-Hydrology_map_sample.svg.png','تحليل شبكة المياه والأنهار لتقدير مخاطر السيول وتصميم البنية التحتية.')">خريطة التحليل الهيدرولوجي</li>
-        <li onclick="openModal('خريطة IDW و Spline و Kriging','https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/IDW_spline_kriging_example.svg/512px-IDW_spline_kriging_example.svg.png','تطبيق أساليب التنبؤ المكاني لتوزيع البيانات وتحليل الاتجاهات.')">خريطة IDW و Spline و Kriging</li>
-        <li onclick="openModal('تأثير المحارق لمدينة جدة','https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Incinerator_impact_map_sample.svg/512px-Incinerator_impact_map_sample.svg.png','تقييم تأثير مواقع المحارق على البيئة والصحة العامة في المدينة.')">تأثير المحارق لمدينة جدة</li>
-    </ul>
+    <div class="project-grid">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Electrical_grid_map_sample.svg/512px-Electrical_grid_map_sample.svg.png" onclick="openModal('خطوط الشبكة الكهربائية للسعودية','https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Electrical_grid_map_sample.svg/512px-Electrical_grid_map_sample.svg.png','تحليل خطوط الشبكة الكهربائية وتوزيعها عبر المملكة لتحسين التخطيط وإدارة البنية التحتية.')" alt="خطوط الشبكة الكهربائية للسعودية">
+        
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Map_projection_sample.svg/512px-Map_projection_sample.svg.png" onclick="openModal('خريطة المركز المتوسط وخريطة توزيع الاتجاه','https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Map_projection_sample.svg/512px-Map_projection_sample.svg.png','تحليل المركز المتوسط والاتجاهات لتوزيع الموارد أو الخدمات في منطقة محددة.')" alt="خريطة المركز المتوسط وخريطة توزيع الاتجاه">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Interactive_map_icon.svg/512px-Interactive_map_icon.svg.png" onclick="openModal('كود HTML لخريطة تفاعلية','https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Interactive_map_icon.svg/512px-Interactive_map_icon.svg.png','خريطة تفاعلية تضغطين على الدولة ليظهر اسمها باستخدام HTML وJS.')" alt="كود HTML لخريطة تفاعلية">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Jeddah_map_sample.svg/512px-Jeddah_map_sample.svg.png" onclick="openModal('توزيع الحاويات لمدينة جدة','https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Jeddah_map_sample.svg/512px-Jeddah_map_sample.svg.png','تحليل مواقع الحاويات لتسهيل جمع النفايات وتحسين الخدمات البيئية.')" alt="توزيع الحاويات لمدينة جدة">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Landfill_impact_map_sample.svg/512px-Landfill_impact_map_sample.svg.png" onclick="openModal('تأثير المرادم لمدينة جدة','https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Landfill_impact_map_sample.svg/512px-Landfill_impact_map_sample.svg.png','تقييم تأثير مواقع المرادم على المناطق السكنية والبيئة.')" alt="تأثير المرادم لمدينة جدة">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Hydrology_map_sample.svg/512px-Hydrology_map_sample.svg.png" onclick="openModal('خريطة التحليل الهيدرولوجي','https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Hydrology_map_sample.svg/512px-Hydrology_map_sample.svg.png','تحليل شبكة المياه والأنهار لتقدير مخاطر السيول وتصميم البنية التحتية.')" alt="خريطة التحليل الهيدرولوجي">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/IDW_spline_kriging_example.svg/512px-IDW_spline_kriging_example.svg.png" onclick="openModal('خريطة IDW و Spline و Kriging','https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/IDW_spline_kriging_example.svg/512px-IDW_spline_kriging_example.svg.png','تطبيق أساليب التنبؤ المكاني لتوزيع البيانات وتحليل الاتجاهات.')" alt="خريطة IDW و Spline و Kriging">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Incinerator_impact_map_sample.svg/512px-Incinerator_impact_map_sample.svg.png" onclick="openModal('تأثير المحارق لمدينة جدة','https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Incinerator_impact_map_sample.svg/512px-Incinerator_impact_map_sample.svg.png','تقييم تأثير مواقع المحارق على البيئة والصحة العامة في المدينة.')" alt="تأثير المحارق لمدينة جدة">
+    </div>
+</section>
+
+<section id="skills">
+    <h2>المهارات</h2>
+    <div class="skills-list">
+        <span>ArcGIS Pro</span>
+        <span>QGIS</span>
+        <span>تحليل مكاني GIS</span>
+        <span>خرائط تفاعلية HTML/JS</span>
+        <span>Spatial Analysis</span>
+        <span>IDW / Spline / Kriging</span>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>تواصل معي</h2>
+    <div class="contact-list">
+        <a href="mailto:hams@example.com">البريد الإلكتروني: hams@example.com</a>
+        <a href="https://www.linkedin.com/in/hams-alharthy" target="_blank">LinkedIn: Hams Alharthy</a>
+        <a href="https://github.com/hams-alharthy" target="_blank">GitHub: Hams Alharthy</a>
+    </div>
 </section>
 
 <!-- POPUP MODAL -->
