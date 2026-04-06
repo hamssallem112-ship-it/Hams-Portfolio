@@ -18,221 +18,117 @@ header{
     text-align:center;
     padding:60px 20px;
     background: linear-gradient(to right, #a3bffa, #c7d2fe);
-    animation: fadeInHeader 2s ease forwards;
 }
-@keyframes fadeInHeader{
-    0% {opacity:0; transform: translateY(-50px);}
-    100% {opacity:1; transform: translateY(0);}
-}
-header h1{
-    font-size:42px;
-    margin-bottom:10px;
-}
-header p{
-    font-size:18px;
-    color:#1e293b;
-}
-header img{
-    width:150px;
-    margin-top:20px;
-    border-radius:10px;
-}
-button{
-    margin-top:20px;
-    padding:12px 25px;
-    background:#6366f1;
-    border:none;
-    color:white;
-    cursor:pointer;
-    font-size:16px;
-    border-radius:8px;
-}
+header h1{ font-size:42px; margin-bottom:10px; }
+header p{ font-size:18px; color:#1e293b; }
+header img{ width:150px; margin-top:20px; border-radius:10px; }
+button{ margin-top:20px; padding:12px 25px; background:#6366f1; border:none; color:white; cursor:pointer; font-size:16px; border-radius:8px;}
 
 /* SECTIONS */
-section{
-    padding:50px 20px;
-    max-width:1100px;
-    margin:auto;
+section{ padding:50px 20px; max-width:1100px; margin:auto;}
+h2{ margin-bottom:25px; border-bottom:3px solid #6366f1; display:inline-block; padding-bottom:5px;}
+
+/* PROJECTS LIST */
+.project-list{
+    list-style:none;
+    padding:0;
 }
-h2{
-    margin-bottom:25px;
-    border-bottom:3px solid #6366f1;
-    display:inline-block;
-    padding-bottom:5px;
+.project-list li{
+    background:#f1f5f9;
+    padding:15px 20px;
+    margin-bottom:15px;
+    border-radius:10px;
+    cursor:pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.project-list li:hover{
+    transform: scale(1.02);
+    box-shadow:0 8px 15px rgba(0,0,0,0.2);
 }
 
-/* SKILLS */
-.skills{
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
+/* POPUP */
+.modal{
+    display:none;
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: rgba(0,0,0,0.6);
+    justify-content:center;
+    align-items:center;
+    z-index:100;
 }
-.card{
-    background:#e0e7ff;
+.modal-content{
+    background:white;
     padding:25px;
     border-radius:12px;
-    flex:1;
+    max-width:700px;
+    width:90%;
+    position:relative;
     text-align:center;
-    opacity:0;
-    transform: translateY(50px);
-    animation: fadeInUp 1s forwards;
 }
-.card:nth-child(1){animation-delay:0.2s;}
-.card:nth-child(2){animation-delay:0.4s;}
-.card:nth-child(3){animation-delay:0.6s;}
-@keyframes fadeInUp{
-    to {opacity:1; transform: translateY(0);}
-}
-
-/* PROJECTS */
-.projects{
-    display:flex;
-    gap:25px;
-    flex-wrap:wrap;
-}
-.project{
-    background:#f1f5f9;
-    padding:15px;
-    border-radius:12px;
-    flex:1 1 45%;
-    transition: transform 0.4s, box-shadow 0.4s;
-    opacity:0;
-    transform: translateY(50px);
-}
-.project:nth-child(1){animation: fadeInUpProj 0.5s 0.2s forwards;}
-.project:nth-child(2){animation: fadeInUpProj 0.5s 0.4s forwards;}
-.project:nth-child(3){animation: fadeInUpProj 0.5s 0.6s forwards;}
-.project:nth-child(4){animation: fadeInUpProj 0.5s 0.8s forwards;}
-.project:nth-child(5){animation: fadeInUpProj 0.5s 1s forwards;}
-.project:nth-child(6){animation: fadeInUpProj 0.5s 1.2s forwards;}
-.project:nth-child(7){animation: fadeInUpProj 0.5s 1.4s forwards;}
-.project:nth-child(8){animation: fadeInUpProj 0.5s 1.6s forwards;}
-@keyframes fadeInUpProj{
-    to {opacity:1; transform: translateY(0);}
-}
-.project:hover{
-    transform: scale(1.05);
-    box-shadow:0 10px 20px rgba(0,0,0,0.2);
-}
-.project img{
+.modal-content img{
     width:100%;
     border-radius:10px;
+    margin-bottom:15px;
 }
-.project h3{
-    margin-top:15px;
-    color:#1e293b;
-}
-.project p{
-    margin-top:10px;
+.close-btn{
+    position:absolute;
+    top:10px; right:15px;
+    font-size:24px;
+    cursor:pointer;
     color:#334155;
-}
-
-/* CONTACT */
-.contact{
-    text-align:center;
-    background:#c7d2fe;
-    padding:40px 20px;
-    border-radius:12px;
-}
-.contact p{
-    margin:8px 0;
 }
 </style>
 </head>
-
 <body>
 
 <header>
     <h1>همس سالم الحارثي</h1>
-    <p>طالبة نظم معلومات جغرافية | GIS Enthusiast</p>
+    <p>متخصصة في نظم المعلومات الجغرافية | GIS Professional</p>
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Geographic_information_system_icon.svg/512px-Geographic_information_system_icon.svg.png" alt="GIS Icon">
     <br>
     <button onclick="document.getElementById('projects').scrollIntoView()">مشاريعي</button>
 </header>
 
-<section>
-    <h2>من أنا</h2>
-    <p>طالبة نظم معلومات جغرافية مهتمة بتحليل البيانات المكانية وتطوير الخرائط التفاعلية. أسعى لتطبيق GIS في تحسين الخدمات والبنية التحتية واتخاذ القرار.</p>
-</section>
-
-<section>
-    <h2>المهارات</h2>
-    <div class="skills">
-        <div class="card">
-            <h3>أدوات GIS</h3>
-            <p>ArcGIS Pro<br>ArcGIS Online</p>
-        </div>
-        <div class="card">
-            <h3>التحليل المكاني</h3>
-            <p>Spatial Analysis<br>Network Analysis<br>Hydrological Analysis</p>
-        </div>
-        <div class="card">
-            <h3>البرمجة</h3>
-            <p>HTML, CSS, JavaScript</p>
-        </div>
-    </div>
-</section>
-
 <section id="projects">
     <h2>المشاريع</h2>
-    <div class="projects">
+    <ul class="project-list">
+        <li onclick="openModal('خطوط الشبكة الكهربائية للسعودية','https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Electrical_grid_map_sample.svg/512px-Electrical_grid_map_sample.svg.png','تحليل خطوط الشبكة الكهربائية وتوزيعها عبر المملكة لتحسين التخطيط وإدارة البنية التحتية.')">خطوط الشبكة الكهربائية للسعودية</li>
+        <li onclick="openModal('خريطة المركز المتوسط وخريطة توزيع الاتجاه','https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Map_projection_sample.svg/512px-Map_projection_sample.svg.png','تحليل المركز المتوسط والاتجاهات لتوزيع الموارد أو الخدمات في منطقة محددة.')">خريطة المركز المتوسط وخريطة توزيع الاتجاه</li>
+        <li onclick="openModal('خريطة HTML تفاعلية','https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Interactive_map_icon.svg/512px-Interactive_map_icon.svg.png','خريطة تفاعلية تضغطين على الدولة ليظهر اسمها باستخدام HTML وJS.')">خريطة HTML تفاعلية</li>
+        <li onclick="openModal('توزيع الحاويات لمدينة جدة','https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Jeddah_map_sample.svg/512px-Jeddah_map_sample.svg.png','تحليل مواقع الحاويات لتسهيل جمع النفايات وتحسين الخدمات البيئية.')">توزيع الحاويات لمدينة جدة</li>
+        <li onclick="openModal('تأثير المرادم لمدينة جدة','https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Landfill_impact_map_sample.svg/512px-Landfill_impact_map_sample.svg.png','تقييم تأثير مواقع المرادم على المناطق السكنية والبيئة.')">تأثير المرادم لمدينة جدة</li>
+        <li onclick="openModal('خريطة التحليل الهيدرولوجي','https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Hydrology_map_sample.svg/512px-Hydrology_map_sample.svg.png','تحليل شبكة المياه والأنهار لتقدير مخاطر السيول وتصميم البنية التحتية.')">خريطة التحليل الهيدرولوجي</li>
+        <li onclick="openModal('خريطة IDW و Spline و Kriging','https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/IDW_spline_kriging_example.svg/512px-IDW_spline_kriging_example.svg.png','تطبيق أساليب التنبؤ المكاني لتوزيع البيانات وتحليل الاتجاهات.')">خريطة IDW و Spline و Kriging</li>
+        <li onclick="openModal('تأثير المحارق لمدينة جدة','https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Incinerator_impact_map_sample.svg/512px-Incinerator_impact_map_sample.svg.png','تقييم تأثير مواقع المحارق على البيئة والصحة العامة في المدينة.')">تأثير المحارق لمدينة جدة</li>
+    </ul>
+</section>
 
-        <div class="project">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Electrical_grid_map_sample.svg/512px-Electrical_grid_map_sample.svg.png" alt="خطوط الشبكة الكهربائية">
-            <h3>خطوط الشبكة الكهربائية للسعودية</h3>
-            <p>تحليل خطوط الشبكة الكهربائية وتوزيعها عبر المملكة لتحسين التخطيط وإدارة البنية التحتية.</p>
-        </div>
-
-        <div class="project">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Map_projection_sample.svg/512px-Map_projection_sample.svg.png" alt="المركز المتوسط">
-            <h3>خريطة المركز المتوسط وخريطة توزيع الاتجاه</h3>
-            <p>تحليل المركز المتوسط والاتجاهات لتوزيع الموارد أو الخدمات في منطقة محددة.</p>
-        </div>
-
-        <div class="project">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Interactive_map_icon.svg/512px-Interactive_map_icon.svg.png" alt="خريطة تفاعلية">
-            <h3>كود HTML لخريطة تفاعلية</h3>
-            <p>خريطة تفاعلية تضغطين على الدولة ليظهر اسمها باستخدام HTML وJS.</p>
-        </div>
-
-        <div class="project">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Jeddah_map_sample.svg/512px-Jeddah_map_sample.svg.png" alt="توزيع الحاويات">
-            <h3>توزيع الحاويات لمدينة جدة</h3>
-            <p>تحليل مواقع الحاويات لتسهيل جمع النفايات وتحسين الخدمات البيئية.</p>
-        </div>
-
-        <div class="project">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Landfill_impact_map_sample.svg/512px-Landfill_impact_map_sample.svg.png" alt="تأثير المرادم">
-            <h3>تأثير المرادم لمدينة جدة</h3>
-            <p>تقييم تأثير مواقع المرادم على المناطق السكنية والبيئة.</p>
-        </div>
-
-        <div class="project">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Hydrology_map_sample.svg/512px-Hydrology_map_sample.svg.png" alt="التحليل الهيدرولوجي">
-            <h3>خريطة التحليل الهيدرولوجي</h3>
-            <p>تحليل شبكة المياه والأنهار لتقدير مخاطر السيول وتصميم البنية التحتية.</p>
-        </div>
-
-        <div class="project">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/IDW_spline_kriging_example.svg/512px-IDW_spline_kriging_example.svg.png" alt="خريطة IDW و Spline و Kriging">
-            <h3>خريطة IDW و Spline و Kriging</h3>
-            <p>تطبيق أساليب التنبؤ المكاني لتوزيع البيانات وتحليل الاتجاهات.</p>
-        </div>
-
-        <div class="project">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Incinerator_impact_map_sample.svg/512px-Incinerator_impact_map_sample.svg.png" alt="تأثير المحارق">
-            <h3>تأثير المحارق لمدينة جدة</h3>
-            <p>تقييم تأثير مواقع المحارق على البيئة والصحة العامة في المدينة.</p>
-        </div>
-
+<!-- POPUP MODAL -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h3 id="modal-title"></h3>
+        <img id="modal-img" src="" alt="Project Image">
+        <p id="modal-desc"></p>
     </div>
-</section>
+</div>
 
-<section class="contact">
-    <h2>تواصل معي</h2>
-    <p>Email: your@email.com</p>
-    <p>LinkedIn: linkedin.com/in/yourprofile</p>
-</section>
+<script>
+function openModal(title,img,desc){
+    document.getElementById('modal-title').innerText = title;
+    document.getElementById('modal-img').src = img;
+    document.getElementById('modal-desc').innerText = desc;
+    document.getElementById('modal').style.display='flex';
+}
+function closeModal(){
+    document.getElementById('modal').style.display='none';
+}
+// close modal on click outside content
+window.onclick = function(e){
+    if(e.target.id==='modal'){ closeModal(); }
+}
+</script>
 
 </body>
 </html>
