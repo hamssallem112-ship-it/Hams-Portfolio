@@ -3,49 +3,56 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>همس سالم الحارثي | GIS Portfolio</title>
-
+<title>همس سالم الحارثي | بورتفوليو GIS</title>
 <style>
 body{
     margin:0;
-    font-family: Arial;
-    background:#0f172a;
-    color:#e2e8f0;
+    font-family: 'Arial', sans-serif;
+    background:#f8fafc;
+    color:#0f172a;
 }
 
 /* HEADER */
 header{
     text-align:center;
-    padding:80px 20px;
-    background:linear-gradient(to right,#0f172a,#1e293b);
+    padding:60px 20px;
+    background: linear-gradient(to right, #a3bffa, #c7d2fe);
 }
 header h1{
-    font-size:40px;
+    font-size:42px;
     margin-bottom:10px;
 }
 header p{
     font-size:18px;
-    color:#94a3b8;
+    color:#1e293b;
+}
+header img{
+    width:150px;
+    margin-top:20px;
+    border-radius:10px;
 }
 button{
     margin-top:20px;
-    padding:10px 20px;
-    background:#38bdf8;
+    padding:12px 25px;
+    background:#6366f1;
     border:none;
     color:white;
     cursor:pointer;
+    font-size:16px;
+    border-radius:8px;
 }
 
 /* SECTIONS */
 section{
     padding:50px 20px;
-    max-width:1000px;
+    max-width:1100px;
     margin:auto;
 }
 h2{
-    margin-bottom:20px;
-    border-bottom:2px solid #38bdf8;
+    margin-bottom:25px;
+    border-bottom:3px solid #6366f1;
     display:inline-block;
+    padding-bottom:5px;
 }
 
 /* SKILLS */
@@ -55,32 +62,52 @@ h2{
     flex-wrap:wrap;
 }
 .card{
-    background:#1e293b;
-    padding:20px;
-    border-radius:10px;
+    background:#e0e7ff;
+    padding:25px;
+    border-radius:12px;
     flex:1;
+    text-align:center;
 }
 
 /* PROJECTS */
 .projects{
     display:flex;
-    gap:20px;
+    gap:25px;
     flex-wrap:wrap;
 }
 .project{
-    background:#1e293b;
+    background:#f1f5f9;
     padding:15px;
-    border-radius:10px;
+    border-radius:12px;
     flex:1 1 45%;
+    transition: transform 0.3s;
+    cursor:pointer;
+}
+.project:hover{
+    transform: scale(1.05);
 }
 .project img{
     width:100%;
     border-radius:10px;
 }
+.project h3{
+    margin-top:15px;
+    color:#1e293b;
+}
+.project p{
+    margin-top:10px;
+    color:#334155;
+}
 
 /* CONTACT */
 .contact{
     text-align:center;
+    background:#c7d2fe;
+    padding:40px 20px;
+    border-radius:12px;
+}
+.contact p{
+    margin:8px 0;
 }
 </style>
 </head>
@@ -89,33 +116,31 @@ h2{
 
 <header>
     <h1>همس سالم الحارثي</h1>
-    <p>GIS Student | Spatial Analysis Enthusiast</p>
-    <p>أحلّل البيانات المكانية لتحويلها إلى قرارات ذكية</p>
+    <p>طالبة نظم معلومات جغرافية | GIS Enthusiast</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Geographic_information_system_icon.svg/512px-Geographic_information_system_icon.svg.png" alt="GIS Icon">
+    <br>
     <button onclick="document.getElementById('projects').scrollIntoView()">مشاريعي</button>
 </header>
 
 <section>
     <h2>من أنا</h2>
-    <p>
-    طالبة نظم معلومات جغرافية مهتمة بتحليل البيانات المكانية وتطوير الخرائط التفاعلية.
-    أسعى لتطبيق GIS في تحسين الخدمات والبنية التحتية واتخاذ القرار.
-    </p>
+    <p>طالبة نظم معلومات جغرافية مهتمة بتحليل البيانات المكانية وتطوير الخرائط التفاعلية. أسعى لتطبيق GIS في تحسين الخدمات والبنية التحتية واتخاذ القرار.</p>
 </section>
 
 <section>
     <h2>المهارات</h2>
     <div class="skills">
         <div class="card">
-            <h3>GIS Tools</h3>
+            <h3>أدوات GIS</h3>
             <p>ArcGIS Pro<br>ArcGIS Online</p>
         </div>
         <div class="card">
-            <h3>Technical</h3>
-            <p>HTML, CSS, JavaScript</p>
+            <h3>التحليل المكاني</h3>
+            <p>Spatial Analysis<br>Network Analysis<br>Hydrological Analysis</p>
         </div>
         <div class="card">
-            <h3>Analysis</h3>
-            <p>Spatial Analysis<br>Network Analysis</p>
+            <h3>البرمجة</h3>
+            <p>HTML, CSS, JavaScript</p>
         </div>
     </div>
 </section>
@@ -125,15 +150,51 @@ h2{
     <div class="projects">
 
         <div class="project">
-            <img src="https://via.placeholder.com/400x250">
-            <h3>خريطة تفاعلية</h3>
-            <p>عرض بيانات مكانية باستخدام JavaScript وخرائط ويب.</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Electrical_grid_map_sample.svg/512px-Electrical_grid_map_sample.svg.png" alt="خطوط الشبكة الكهربائية">
+            <h3>خطوط الشبكة الكهربائية للسعودية</h3>
+            <p>تحليل خطوط الشبكة الكهربائية وتوزيعها عبر المملكة لتحسين التخطيط وإدارة البنية التحتية.</p>
         </div>
 
         <div class="project">
-            <img src="https://via.placeholder.com/400x250">
-            <h3>تحليل توزيع الخدمات</h3>
-            <p>تحليل الفجوات في الخدمات باستخدام ArcGIS.</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Map_projection_sample.svg/512px-Map_projection_sample.svg.png" alt="المركز المتوسط">
+            <h3>خريطة المركز المتوسط وخريطة توزيع الاتجاه</h3>
+            <p>تحليل المركز المتوسط والاتجاهات لتوزيع الموارد أو الخدمات في منطقة محددة.</p>
+        </div>
+
+        <div class="project">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Interactive_map_icon.svg/512px-Interactive_map_icon.svg.png" alt="خريطة تفاعلية">
+            <h3>كود HTML لخريطة تفاعلية</h3>
+            <p>خريطة تفاعلية تضغطين على الدولة ليظهر اسمها باستخدام HTML وJS.</p>
+        </div>
+
+        <div class="project">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Jeddah_map_sample.svg/512px-Jeddah_map_sample.svg.png" alt="توزيع الحاويات">
+            <h3>توزيع الحاويات لمدينة جدة</h3>
+            <p>تحليل مواقع الحاويات لتسهيل جمع النفايات وتحسين الخدمات البيئية.</p>
+        </div>
+
+        <div class="project">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Landfill_impact_map_sample.svg/512px-Landfill_impact_map_sample.svg.png" alt="تأثير المرادم">
+            <h3>تأثير المرادم لمدينة جدة</h3>
+            <p>تقييم تأثير مواقع المرادم على المناطق السكنية والبيئة.</p>
+        </div>
+
+        <div class="project">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Hydrology_map_sample.svg/512px-Hydrology_map_sample.svg.png" alt="التحليل الهيدرولوجي">
+            <h3>خريطة التحليل الهيدرولوجي</h3>
+            <p>تحليل شبكة المياه والأنهار لتقدير مخاطر السيول وتصميم البنية التحتية.</p>
+        </div>
+
+        <div class="project">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/IDW_spline_kriging_example.svg/512px-IDW_spline_kriging_example.svg.png" alt="خريطة IDW و Spline و Kriging">
+            <h3>خريطة IDW و Spline و Kriging</h3>
+            <p>تطبيق أساليب التنبؤ المكاني لتوزيع البيانات وتحليل الاتجاهات.</p>
+        </div>
+
+        <div class="project">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Incinerator_impact_map_sample.svg/512px-Incinerator_impact_map_sample.svg.png" alt="تأثير المحارق">
+            <h3>تأثير المحارق لمدينة جدة</h3>
+            <p>تقييم تأثير مواقع المحارق على البيئة والصحة العامة في المدينة.</p>
         </div>
 
     </div>
@@ -142,6 +203,7 @@ h2{
 <section class="contact">
     <h2>تواصل معي</h2>
     <p>Email: your@email.com</p>
+    <p>LinkedIn: linkedin.com/in/yourprofile</p>
 </section>
 
 </body>
