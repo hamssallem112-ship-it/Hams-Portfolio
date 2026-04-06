@@ -8,16 +8,19 @@
 body{
     margin:0;
     font-family:'Arial', sans-serif;
-    background:#f8fafc;
     color:#0f172a;
     scroll-behavior: smooth;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Geographic_information_system_icon.svg/1024px-Geographic_information_system_icon.svg.png') no-repeat center top;
+    background-size: cover;
 }
 
 /* HEADER */
 header{
     text-align:center;
     padding:60px 20px;
-    background: linear-gradient(to right, #a3bffa, #c7d2fe);
+    background: rgba(163,191,250,0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid #6366f1;
 }
 header h1{ font-size:42px; margin-bottom:10px; }
 header p{ font-size:18px; color:#1e293b; }
@@ -25,7 +28,7 @@ header img{ width:150px; margin-top:20px; border-radius:10px; }
 button{ margin-top:20px; padding:12px 25px; background:#6366f1; border:none; color:white; cursor:pointer; font-size:16px; border-radius:8px;}
 
 /* SECTIONS */
-section{ padding:50px 20px; max-width:1100px; margin:auto;}
+section{ padding:50px 20px; max-width:1100px; margin:auto; background: rgba(255,255,255,0.8); border-radius:12px; margin-bottom:40px;}
 h2{ margin-bottom:25px; border-bottom:3px solid #6366f1; display:inline-block; padding-bottom:5px;}
 
 /* PROJECTS LIST */
@@ -65,6 +68,7 @@ h2{ margin-bottom:25px; border-bottom:3px solid #6366f1; display:inline-block; p
     width:90%;
     position:relative;
     text-align:center;
+    animation: fadeIn 0.4s ease forwards;
 }
 .modal-content img{
     width:100%;
@@ -78,13 +82,18 @@ h2{ margin-bottom:25px; border-bottom:3px solid #6366f1; display:inline-block; p
     cursor:pointer;
     color:#334155;
 }
+
+@keyframes fadeIn{
+    from{opacity:0; transform: translateY(-20px);}
+    to{opacity:1; transform: translateY(0);}
+}
 </style>
 </head>
 <body>
 
 <header>
     <h1>همس سالم الحارثي</h1>
-    <p>متخصصة في نظم المعلومات الجغرافية | GIS Professional</p>
+    <p>محللة نظم المعلومات الجغرافية | GIS Professional</p>
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Geographic_information_system_icon.svg/512px-Geographic_information_system_icon.svg.png" alt="GIS Icon">
     <br>
     <button onclick="document.getElementById('projects').scrollIntoView()">مشاريعي</button>
@@ -95,7 +104,7 @@ h2{ margin-bottom:25px; border-bottom:3px solid #6366f1; display:inline-block; p
     <ul class="project-list">
         <li onclick="openModal('خطوط الشبكة الكهربائية للسعودية','https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Electrical_grid_map_sample.svg/512px-Electrical_grid_map_sample.svg.png','تحليل خطوط الشبكة الكهربائية وتوزيعها عبر المملكة لتحسين التخطيط وإدارة البنية التحتية.')">خطوط الشبكة الكهربائية للسعودية</li>
         <li onclick="openModal('خريطة المركز المتوسط وخريطة توزيع الاتجاه','https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Map_projection_sample.svg/512px-Map_projection_sample.svg.png','تحليل المركز المتوسط والاتجاهات لتوزيع الموارد أو الخدمات في منطقة محددة.')">خريطة المركز المتوسط وخريطة توزيع الاتجاه</li>
-        <li onclick="openModal('خريطة HTML تفاعلية','https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Interactive_map_icon.svg/512px-Interactive_map_icon.svg.png','خريطة تفاعلية تضغطين على الدولة ليظهر اسمها باستخدام HTML وJS.')">خريطة HTML تفاعلية</li>
+        <li onclick="openModal('كود HTML لخريطة تفاعلية','https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Interactive_map_icon.svg/512px-Interactive_map_icon.svg.png','خريطة تفاعلية تضغطين على الدولة ليظهر اسمها باستخدام HTML وJS.')">كود HTML لخريطة تفاعلية</li>
         <li onclick="openModal('توزيع الحاويات لمدينة جدة','https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Jeddah_map_sample.svg/512px-Jeddah_map_sample.svg.png','تحليل مواقع الحاويات لتسهيل جمع النفايات وتحسين الخدمات البيئية.')">توزيع الحاويات لمدينة جدة</li>
         <li onclick="openModal('تأثير المرادم لمدينة جدة','https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Landfill_impact_map_sample.svg/512px-Landfill_impact_map_sample.svg.png','تقييم تأثير مواقع المرادم على المناطق السكنية والبيئة.')">تأثير المرادم لمدينة جدة</li>
         <li onclick="openModal('خريطة التحليل الهيدرولوجي','https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Hydrology_map_sample.svg/512px-Hydrology_map_sample.svg.png','تحليل شبكة المياه والأنهار لتقدير مخاطر السيول وتصميم البنية التحتية.')">خريطة التحليل الهيدرولوجي</li>
