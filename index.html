@@ -2,230 +2,147 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>همس سالم الحارثي | GIS Portfolio</title>
 
 <style>
 body{
+    margin:0;
     font-family: Arial;
-    margin:0;
-    background:#0a0f24; /* داكن جدًا */
-    color:#f1f5f9;
+    background:#0f172a;
+    color:#e2e8f0;
 }
 
-/* الهيدر */
+/* HEADER */
 header{
-    background: url('https://upload.wikimedia.org/wikipedia/commons/7/7a/ArcGIS_logo.png') center/cover no-repeat;
-    color:white;
-    padding:50px 20px;
     text-align:center;
-    text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+    padding:80px 20px;
+    background:linear-gradient(to right,#0f172a,#1e293b);
 }
-
 header h1{
-    margin:0;
-    font-size:36px;
-    font-weight:bold;
+    font-size:40px;
+    margin-bottom:10px;
 }
-
 header p{
-    margin-top:10px;
     font-size:18px;
-    opacity:0.85;
+    color:#94a3b8;
+}
+button{
+    margin-top:20px;
+    padding:10px 20px;
+    background:#38bdf8;
+    border:none;
+    color:white;
+    cursor:pointer;
 }
 
-/* التعريف */
-.about{
-    padding:40px;
-    text-align:center;
-    max-width:800px;
+/* SECTIONS */
+section{
+    padding:50px 20px;
+    max-width:1000px;
     margin:auto;
 }
-
-.about h2{
-    color:#3da1f5;
-    font-weight:bold;
+h2{
+    margin-bottom:20px;
+    border-bottom:2px solid #38bdf8;
+    display:inline-block;
 }
 
-/* المشاريع */
-.projects{
+/* SKILLS */
+.skills{
     display:flex;
-    justify-content:center;
-    gap:25px;
-    padding:40px;
+    gap:20px;
     flex-wrap:wrap;
 }
-
 .card{
-    width:280px; /* أصغر شوي */
-    background:#1e293b; /* داكنة مع تأثير */
-    border-radius:15px;
-    overflow:hidden;
-    cursor:pointer;
-    transition:0.4s;
-    box-shadow:0 6px 20px rgba(0,0,0,0.4);
-}
-
-.card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 15px 30px rgba(0,0,0,0.6);
-}
-
-.card img{
-    width:100%;
-    height:160px; /* أصغر قليلاً */
-    object-fit:cover;
-}
-
-.card h3{
-    text-align:center;
-    padding:15px;
-    font-weight:bold; /* عريض */
-    font-size:1.2rem;
-    color:#f1f5f9;
-}
-
-/* الداشبورد */
-.dashboard{
-    display:none;
-    padding:30px;
-    max-width:900px;
-    margin:auto;
-}
-
-.map{
-    width:90%; /* أصغر شوي */
-    margin:15px 0;
-    border-radius:12px;
-    display:block;
-    margin-left:auto;
-    margin-right:auto;
-}
-
-.section-title{
-    margin-top:30px;
-    color:#3da1f5;
-    border-bottom:2px solid #3da1f5;
-    padding-bottom:5px;
-}
-
-button{
-    padding:10px 20px;
-    background:#3da1f5;
-    color:white;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-    margin-bottom:20px;
-}
-
-/* التواصل */
-.contact{
     background:#1e293b;
-    color:white;
-    text-align:center;
-    padding:40px 20px;
-    border-top:2px solid #3da1f5;
+    padding:20px;
+    border-radius:10px;
+    flex:1;
 }
 
-.contact h2{
-    margin-bottom:15px;
-    color:#3da1f5;
+/* PROJECTS */
+.projects{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+.project{
+    background:#1e293b;
+    padding:15px;
+    border-radius:10px;
+    flex:1 1 45%;
+}
+.project img{
+    width:100%;
+    border-radius:10px;
+}
+
+/* CONTACT */
+.contact{
+    text-align:center;
 }
 </style>
-
 </head>
 
 <body>
 
 <header>
-<h1>همس سالم الحارثي</h1>
-<p>محللة نظم معلومات جغرافية (GIS Analyst)</p>
+    <h1>همس سالم الحارثي</h1>
+    <p>GIS Student | Spatial Analysis Enthusiast</p>
+    <p>أحلّل البيانات المكانية لتحويلها إلى قرارات ذكية</p>
+    <button onclick="document.getElementById('projects').scrollIntoView()">مشاريعي</button>
 </header>
 
-<!-- التعريف -->
-<section class="about">
-<h2>نبذة عني</h2>
-<p>
-أنا مختصة في نظم المعلومات الجغرافية (GIS) وأهتم بتحليل البيانات المكانية لدعم اتخاذ القرار. 
-أمتلك مهارات في تحليل التوزيع المكاني، ودراسة الكثافة السكانية، واستخدام أدوات GIS لإنشاء خرائط تحليلية احترافية تساعد في فهم الأنماط الجغرافية وتحديد الفجوات في الخدمات.
-</p>
+<section>
+    <h2>من أنا</h2>
+    <p>
+    طالبة نظم معلومات جغرافية مهتمة بتحليل البيانات المكانية وتطوير الخرائط التفاعلية.
+    أسعى لتطبيق GIS في تحسين الخدمات والبنية التحتية واتخاذ القرار.
+    </p>
 </section>
 
-<!-- المشاريع -->
-<div class="projects" id="projects">
+<section>
+    <h2>المهارات</h2>
+    <div class="skills">
+        <div class="card">
+            <h3>GIS Tools</h3>
+            <p>ArcGIS Pro<br>ArcGIS Online</p>
+        </div>
+        <div class="card">
+            <h3>Technical</h3>
+            <p>HTML, CSS, JavaScript</p>
+        </div>
+        <div class="card">
+            <h3>Analysis</h3>
+            <p>Spatial Analysis<br>Network Analysis</p>
+        </div>
+    </div>
+</section>
 
-<div class="card" onclick="openDashboard('health')">
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/01/World_map_blank_without_borders.svg" alt="توزيع المراكز الصحية">
-<h3>توزيع المراكز الصحية</h3>
-</div>
+<section id="projects">
+    <h2>المشاريع</h2>
+    <div class="projects">
 
-</div>
+        <div class="project">
+            <img src="https://via.placeholder.com/400x250">
+            <h3>خريطة تفاعلية</h3>
+            <p>عرض بيانات مكانية باستخدام JavaScript وخرائط ويب.</p>
+        </div>
 
-<!-- الداشبورد -->
-<div class="dashboard" id="dashboard">
-<button onclick="goBack()">رجوع</button>
-<div id="content"></div>
-</div>
+        <div class="project">
+            <img src="https://via.placeholder.com/400x250">
+            <h3>تحليل توزيع الخدمات</h3>
+            <p>تحليل الفجوات في الخدمات باستخدام ArcGIS.</p>
+        </div>
 
-<!-- التواصل -->
+    </div>
+</section>
+
 <section class="contact">
-<h2>تواصل معي</h2>
-<p>📧 email@example.com</p>
-<p>📱 05xxxxxxxx</p>
+    <h2>تواصل معي</h2>
+    <p>Email: your@email.com</p>
 </section>
-
-<script>
-function openDashboard(type){
-document.getElementById("projects").style.display="none";
-document.getElementById("dashboard").style.display="block";
-
-let content=document.getElementById("content");
-
-if(type==="health"){
-content.innerHTML=`
-
-<h2 class="section-title">توزيع المراكز الصحية في جدة</h2>
-
-<p>
-تحليل توزيع المراكز الصحية مقارنة بالكثافة السكانية لتحديد الفجوات في التغطية الصحية.
-</p>
-
-<img src="health1.jpg" class="map">
-<img src="health2.jpg" class="map">
-<img src="health3.jpg" class="map">
-
-<h3 class="section-title">النتائج</h3>
-
-<p>
-- تركز المراكز في الأحياء عالية الكثافة مثل الزهراء والروابي<br>
-- وجود فجوات في العزيزية وأم السلم<br>
-- الحاجة لتعزيز الخدمات في الفيصلية والمربع
-</p>
-
-<h3 class="section-title">تحليل التغطية</h3>
-
-<p>
-🟢 تغطية جيدة<br>
-🟡 متوسطة<br>
-🔴 ضعف في الخدمات<br>
-🟠 فجوات كبيرة
-</p>
-
-<h3 class="section-title">الأدوات المستخدمة</h3>
-
-<p>
-ArcGIS Pro - Spatial Analysis - Kernel Density
-</p>
-
-`;
-}
-}
-
-function goBack(){
-document.getElementById("projects").style.display="flex";
-document.getElementById("dashboard").style.display="none";
-}
-</script>
 
 </body>
 </html>
