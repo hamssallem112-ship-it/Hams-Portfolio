@@ -3,237 +3,277 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>معرض أعمال همس سالم الحارثي | GIS Expert</title>
+    <title>معرض أعمال همس الحارثي | نظم المعلومات الجغرافية</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #070a13; /* كحلي أعمق وفخم جداً */
-            --card-bg: #111827; /* لون البطاقات */
-            --accent-blue: #00f2fe; /* أزرق  */
-            --accent-dim: #0ea5e9; /* أزرق أهدأ للتفاصيل */
-            --text-light: #f1f5f9;
-        }
-
-        * {
-            box-sizing: border-box;
-            transition: all 0.3s ease;
+            --خلفية-داكنة: #070a13; 
+            --بطاقة-داكنة: #111827; 
+            --أزرق-مضيء: #00f2fe; 
+            --نص-فاتح: #f1f5f9;
         }
 
         body {
             font-family: 'Tajawal', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-light);
             margin: 0;
-            line-height: 1.6;
+            background: var(--خلفية-داكنة);
+            color: var(--نص-فاتح);
             scroll-behavior: smooth;
         }
 
-        /* تأثير الحركة عند الدخول */
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* الهيدر المطور مع صورة الخلفية المحددة */
+        /* الهيدر مع صورتك المختارة */
         header {
-            height: 100vh;
+            height: 85vh;
+            background: linear-gradient(to bottom, rgba(7, 10, 19, 0.4), rgba(7, 10, 19, 0.95)), 
+                        url('image_5.png') center/cover no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            /* تم دمج صورتك المحددة كخلفية مباشرة مع تراكب داكن للوضوح */
-            background-image: linear-gradient(to bottom, rgba(7, 10, 19, 0.7), rgba(7, 10, 19, 0.95)), url('image_5.png');
-            background-size: cover;
-            background-position: center;
             text-align: center;
-            border-bottom: 2px solid var(--accent-blue);
-            position: relative;
+            border-bottom: 3px solid var(--أزرق-مضيء);
         }
 
         header h1 {
-            font-size: 4.5rem;
+            font-size: 3.5rem;
             margin: 0;
-            color: var(--text-light);
-            text-shadow: 0 0 25px rgba(0, 242, 254, 0.6);
-            animation: slideUp 1s ease;
+            text-shadow: 0 0 20px rgba(0, 242, 254, 0.7);
         }
 
         header p {
-            font-size: 1.6rem;
-            color: var(--accent-blue);
-            animation: slideUp 1.5s ease;
+            font-size: 1.4rem;
+            margin-top: 15px;
+            color: var(--أزرق-مضيء);
             font-weight: 500;
         }
 
-        /* حاوية المشاريع */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 80px 20px;
-        }
-
-        .section-title {
+        /* التعريف */
+        .نبذة {
+            padding: 70px 20px;
             text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: 60px;
-            position: relative;
+            max-width: 900px;
+            margin: auto;
         }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 100px;
-            height: 4px;
-            background: var(--accent-blue);
-            margin: 15px auto;
+        .نبذة h2 {
+            color: var(--أزرق-مضيء);
+            font-weight: bold;
+            margin-bottom: 25px;
+            font-size: 2.2rem;
         }
 
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
+        .نبذة p {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: #cbd5e1;
         }
 
-        /* بطاقة المشروع */
-        .card {
-            background: var(--card-bg);
+        /* شبكة المشاريع */
+        .المشاريع {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 40px;
+            flex-wrap: wrap;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        .بطاقة {
+            width: 320px;
+            background: var(--بطاقة-داكنة);
             border-radius: 20px;
             overflow: hidden;
+            cursor: pointer;
+            transition: 0.4s all ease;
             border: 1px solid rgba(0, 242, 254, 0.1);
-            position: relative;
-            animation: slideUp 2s ease;
         }
 
-        .card:hover {
-            transform: translateY(-10px) scale(1.03);
-            border-color: var(--accent-blue);
-            box-shadow: 0 20px 50px rgba(0, 242, 254, 0.2);
+        .بطاقة:hover {
+            transform: translateY(-12px);
+            border-color: var(--أزرق-مضيء);
+            box-shadow: 0 15px 35px rgba(0, 242, 254, 0.25);
         }
 
-        .card-image {
+        .بطاقة img {
             width: 100%;
-            height: 250px;
+            height: 190px;
             object-fit: cover;
-            border-bottom: 1px solid rgba(0, 242, 254, 0.1);
+            filter: brightness(0.8);
         }
 
-        .card-content {
-            padding: 25px;
+        .بطاقة:hover img {
+            filter: brightness(1.1);
         }
 
-        .card-content h3 {
-            color: var(--accent-blue);
-            margin-top: 0;
-            font-size: 1.4rem;
-        }
-
-        .tag {
-            display: inline-block;
-            background: rgba(0, 242, 254, 0.08);
-            color: var(--accent-dim);
-            padding: 6px 14px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            margin-bottom: 12px;
-            font-weight: 500;
-        }
-
-        footer {
-            background: #02040a;
-            padding: 60px 20px;
+        .بطاقة h3 {
             text-align: center;
-            border-top: 1px solid rgba(0, 242, 254, 0.1);
-        }
-
-        .contact-link {
-            color: var(--accent-dim);
-            text-decoration: none;
+            padding: 20px;
             font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--نص-فاتح);
         }
 
-        .contact-link:hover {
-            color: var(--accent-blue);
-            text-decoration: underline;
+        /* منطقة تفاصيل المشروع */
+        .تفاصيل {
+            display: none;
+            padding: 50px 20px;
+            max-width: 1000px;
+            margin: auto;
+            animation: ظهور 0.6s ease;
         }
 
-        /* زر التنقل السلس */
-        .scroll-btn {
-            color: white;
-            text-decoration: none;
-            border: 1px solid var(--accent-dim);
-            padding: 12px 30px;
+        @keyframes ظهور { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+
+        .خريطة-عرض {
+            width: 100%;
+            max-height: 550px;
+            margin: 25px 0;
+            border-radius: 15px;
+            object-fit: cover;
+            border: 2px solid var(--أزرق-مضيء);
+        }
+
+        .عنوان-فرعي {
+            margin-top: 35px;
+            color: var(--أزرق-مضيء);
+            border-bottom: 2px solid rgba(0, 242, 254, 0.3);
+            padding-bottom: 10px;
+            font-size: 1.6rem;
+        }
+
+        .زر-عودة {
+            padding: 12px 35px;
+            background: var(--أزرق-مضيء);
+            color: var(--خلفية-داكنة);
+            border: none;
             border-radius: 50px;
-            font-weight: 500;
+            cursor: pointer;
+            font-weight: bold;
+            margin-bottom: 30px;
+            font-size: 1rem;
         }
 
-        .scroll-btn:hover {
-            background-color: var(--accent-blue);
-            border-color: var(--accent-blue);
-            color: var(--bg-dark);
-            box-shadow: 0 0 20px rgba(0, 242, 254, 0.5);
+        /* التواصل */
+        .تواصل {
+            background: #02040a;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-top: 2px solid var(--أزرق-مضيء);
         }
 
+        .تواصل h2 { color: var(--أزرق-مضيء); margin-bottom: 30px; }
+        .تواصل a { color: var(--نص-فاتح); text-decoration: none; display: block; margin: 12px 0; font-size: 1.2rem; }
+        .تواصل a:hover { color: var(--أزرق-مضيء); text-decoration: underline; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>هـمس سالم الـحارثي</h1>
-        <p>GIS Specialist & Remote Sensing Analyst</p>
-        <div style="margin-top: 40px;">
-            <a href="#projects" class="scroll-btn"> المشاريع  ↓</a>
-        </div>
-    </header>
+<header>
+    <h1>همس سالم الحارثي</h1>
+    <p>أخصائية نظم معلومات جغرافية (GIS Specialist)</p>
+</header>
 
-    <div class="container" id="projects">
-        <h2 class="section-title">أبرز المشاريع</h2>
-        
-        <div class="projects-grid">
-            
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1000&auto=format&fit=crop" alt="Hydrology" class="card-image">
-                <div class="card-content">
-                    <span class="tag">Hydrology Analysis</span>
-                    <h3>التحليل الهيدرولوجي المتقدم</h3>
-                    <p>استخلاص شبكات الأودية ومسارات السيول لمدينة جدة باستخدام نماذج الارتفاعات الرقمية بدقة عالية.</p>
-                </div>
-            </div>
+<section class="نبذة">
+    <h2>نبذة عني</h2>
+    <p>
+        أخصائية متميزة في نظم المعلومات الجغرافية، حاصلة على البكالوريوس من جامعة الملك عبدالعزيز بمعدل متميز (4.6/5). 
+        لدي خبرة عميقة في التحليل المكاني المتقدم، والنمذجة الهيدرولوجية، ومعالجة صور الأقمار الصناعية، بالإضافة إلى بناء خرائط تفاعلية ذكية تدعم اتخاذ القرار.
+    </p>
+</section>
 
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop" alt="Waste Management" class="card-image">
-                <div class="card-content">
-                    <span class="tag">Environmental GIS</span>
-                    <h3>إدارة نفايات مدينة جدة</h3>
-                    <p>دراسة الأثر المكاني للمرادم والمحارق وتحليل كفاءة توزيع الحاويات لضمان بيئة مستدامة.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1581291417004-6e7210c95383?q=80&w=1000&auto=format&fit=crop" alt="Web GIS" class="card-image">
-                <div class="card-content">
-                    <span class="tag">Interactive Web Map</span>
-                    <h3>كود خريطة العالم التفاعلية</h3>
-                    <p>تطوير خريطة ذكية باستخدام JavaScript تظهر بيانات الدول عند التفاعل المباشر.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop" alt="Spatial Statistics" class="card-image">
-                <div class="card-content">
-                    <span class="tag">Spatial Statistics</span>
-                    <h3>نمذجة التوزيع والاتجاه</h3>
-                    <p>استخدام خوارزميات IDW و Kriging والمركز المتوسط لتحليل الأنماط الجغرافية وتوقع القيم المكانية.</p>
-                </div>
-            </div>
-
-        </div>
+<div class="المشاريع" id="قائمة-المشاريع">
+    <div class="بطاقة" onclick="عرضالمشروع('كهرباء')">
+        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=500" alt="الشبكة الكهربائية">
+        <h3>شبكة الكهرباء للسعودية</h3>
     </div>
+    <div class="بطاقة" onclick="عرضالمشروع('هيدرو')">
+        <img src="https://images.unsplash.com/photo-1444491741275-3747c53c99b4?auto=format&fit=crop&w=500" alt="هيدرولوجي">
+        <h3>التحليل الهيدرولوجي والأودية</h3>
+    </div>
+    <div class="بطاقة" onclick="عرضالمشروع('نفايات')">
+        <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=500" alt="نفايات">
+        <h3>إدارة النفايات لمدينة جدة</h3>
+    </div>
+    <div class="بطاقة" onclick="عرضالمشروع('احصاء')">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500" alt="احصاء مكاني">
+        <h3>التحليل الإحصائي (IDW/Kriging)</h3>
+    </div>
+    <div class="بطاقة" onclick="عرضالمشروع('تفاعلي')">
+        <img src="https://images.unsplash.com/photo-1581291417004-6e7210c95383?auto=format&fit=crop&w=500" alt="برمجة خرائط">
+        <h3>خرائط تفاعلية (HTML/JS)</h3>
+    </div>
+</div>
 
-    <footer>
-        <p style="font-size: 1.4rem; font-weight: 800; color: var(--accent-blue); margin-bottom: 10px;">همس سالم الحارثي</p>
-        <p>للتواصل المهني: <a href="mailto:hamssallem112@gmail.com" class="contact-link">hamssallem112@gmail.com</a></p>
-        <p>رقم الجوال (واتساب): <a href="https://wa.me/966560739523" class="contact-link" target="_blank">0560739523</a></p>
-    </footer>
+<div class="تفاصيل" id="واجهة-العرض">
+    <button class="زر-عودة" onclick="رجوع()">← العودة للمشاريع</button>
+    <div id="محتوى-المشروع"></div>
+</div>
+
+<section class="تواصل">
+    <h2>تواصل معي</h2>
+    <a href="mailto:hamssallem112@gmail.com">📧 hamssallem112@gmail.com</a>
+    <a href="https://wa.me/966560739523" target="_blank">📱 0560739523 (واتساب مباشر)</a>
+    <a href="#">🔗 حسابي على لينكد إن: Hams Alharthi</a>
+</section>
+
+<script>
+    const بياناتالمشاريع = {
+        'كهرباء': {
+            عنوان: "نمذجة خطوط الشبكة الكهربائية للسعودية",
+            وصف: "تحليل مكاني ورسم مسارات خطوط الجهد العالي لربط المناطق السعودية وضمان استقرار التوزيع المكاني للطاقة.",
+            أدوات: "ArcGIS Pro - Network Analyst - Geodatabases",
+            صورة: "https://images.unsplash.com/photo-1454165833467-1359a33a7f74?auto=format&fit=crop&w=800"
+        },
+        'هيدرو': {
+            عنوان: "التحليل الهيدرولوجي وشبكات التصريف",
+            وصف: "استخلاص الأودية ومسارات السيول لمدينة جدة باستخدام بيانات الارتفاعات الرقمية (DEM) لتحليل المخاطر.",
+            أدوات: "Spatial Analyst - Hydrology Toolset (Flow Direction, Accumulation)",
+            صورة: "https://images.unsplash.com/photo-1444491741275-3747c53c99b4?auto=format&fit=crop&w=800"
+        },
+        'نفايات': {
+            عنوان: "إدارة النفايات (المرادم والمحارق والمحاويات)",
+            وصف: "تحليل توزيع الحاويات لمدينة جدة ودراسة أثر المرادم والمحارق لاختيار المواقع الأمثل بيئياً.",
+            أدوات: "MCDA - Suitability Analysis - Buffer Analysis",
+            صورة: "https://images.unsplash.com/photo-1591193013325-d4a98a395973?auto=format&fit=crop&w=800"
+        },
+        'احصاء': {
+            عنوان: "التحليل الإحصائي المكاني المتقدم",
+            وصف: "خريطة المركز المتوسط وتوزيع الاتجاه، مع تطبيق خوارزميات الاستيفاء المكاني (IDW, Spline, Kriging).",
+            أدوات: "Geostatistical Analyst - Interpolation Tools - Spatial Statistics",
+            صورة: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800"
+        },
+        'تفاعلي': {
+            عنوان: "تطوير خرائط الويب التفاعلية",
+            وصف: "بناء كود برمجي لخريطة تفاعلية تظهر بيانات الدول والمدن فور النقر عليها بأسلوب الـ Web GIS.",
+            أدوات: "HTML5 - JavaScript API - CSS3 - GIS Programming",
+            صورة: "https://images.unsplash.com/photo-1581291417004-6e7210c95383?auto=format&fit=crop&w=800"
+        }
+    };
+
+    function عرض المشروع(مفتاح) {
+        const مشروع = بياناتالمشاريع[مفتاح];
+        document.getElementById("قائمة-المشاريع").style.display = "none";
+        document.querySelector(".نبذة").style.display = "none";
+        document.getElementById("واجهة-العرض").style.display = "block";
+        
+        document.getElementById("محتوى-المشروع").innerHTML = `
+            <h2 class="عنوان-فرعي">${مشروع.عنوان}</h2>
+            <p style="font-size: 1.3rem; margin: 20px 0;">${مشروع.وصف}</p>
+            <img src="${مشروع.صورة}" class="خريطة-عرض">
+            <h3 class="عنوان-فرعي">الأدوات والتقنيات المستخدمة:</h3>
+            <p style="background: #1e293b; padding: 15px; border-radius: 10px; color: var(--أزرق-مضيء);">${مشروع.أدوات}</p>
+        `;
+        window.scrollTo(0,0);
+    }
+
+    function رجوع() {
+        document.getElementById("واجهة-العرض").style.display = "none";
+        document.getElementById("قائمة-المشاريع").style.display = "flex";
+        document.querySelector(".نبذة").style.display = "block";
+    }
+</script>
 
 </body>
 </html>
